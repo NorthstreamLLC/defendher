@@ -64,7 +64,7 @@ export default function Header() {
         style={{ flexShrink: 0, textDecoration: 'none', display: 'flex', alignItems: 'center' }}
         aria-label="DefendHer home"
       >
-        <img src="/defendher_logo.png" alt="DefendHer" style={{ height: '52px', width: 'auto', display: 'block' }} />
+        <img src="/defendher_logo.png" alt="DefendHer" style={{ height: '52px', width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />
       </Link>
 
       {/* Desktop nav */}
