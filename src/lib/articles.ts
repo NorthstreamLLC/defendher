@@ -25,7 +25,7 @@ export const ARTICLES: Article[] = [
     date: 'June 18, 2026',
     readTime: '6 min read',
     category: 'Protection',
-    heroImage: '/airo-assets/images/pages/article/hero-girl-hockey',
+    heroImage: '/article.webp',
     heroAlt: 'Young female hockey player on the ice',
     body: [
       {
@@ -51,7 +51,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: 'image',
-        src: '/airo-assets/images/pages/article/hero-girl-hockey',
+        src: '/article.webp',
         alt: 'Young female hockey player in full gear',
         caption: "Young players deserve gear that was built for them — not scaled down from adult men's equipment.",
       },

@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
       { label: 'material', value: 'High-density foam' },
       { label: 'ships', value: 'Free over $75' },
     ],
-    image: '/airo-assets/images/pages/home/product-spotlight',
+    image: '/shop.webp',
     badge: 'NEW',
   },
 ];

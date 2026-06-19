@@ -33,11 +33,11 @@ export default function HomePage() {
         <meta property="og:description" content="CE Level 1 certified neck protection engineered for women's hockey." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${site}/`} />
-        <meta property="og:image" content={`${site}/airo-assets/images/pages/home/hero`} />
+        <meta property="og:image" content={`${site}/hero.webp`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="DefendHer — Neck Protector Built for Women's Hockey" />
         <meta name="twitter:description" content="CE Level 1 certified neck protection engineered for women's hockey." />
-        <meta name="twitter:image" content={`${site}/airo-assets/images/pages/home/hero`} />
+        <meta name="twitter:image" content={`${site}/hero.webp`} />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@graph': [
@@ -82,7 +82,7 @@ export default function HomePage() {
         {/* Full-bleed photo */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }} aria-hidden="true">
           <img
-            src="/airo-assets/images/pages/home/hero"
+            src="/hero.webp"
             alt="Women's hockey player in action"
             width={1920}
             height={1080}
@@ -361,7 +361,7 @@ export default function HomePage() {
             }}
           >
             <img
-              src="/airo-assets/images/pages/home/product-spotlight"
+              src="/shop.webp"
               alt="DefendHer Neck Protector"
               width={800}
               height={1000}
