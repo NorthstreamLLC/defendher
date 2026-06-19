@@ -41,7 +41,7 @@ export default function Header() {
         left: 0,
         right: 0,
         zIndex: 100,
-        height: '90px',
+        height: '64px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -64,7 +64,7 @@ export default function Header() {
         style={{ flexShrink: 0, textDecoration: 'none', display: 'flex', alignItems: 'center' }}
         aria-label="DefendHer home"
       >
-        <img src="/defendher_logo.png" alt="DefendHer" style={{ height: '120px', width: 'auto', display: 'block', filter: 'brightness(3)', mixBlendMode: 'screen' }} />
+        <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '20px', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#ffffff' }}>DEFEND<span style={{ color: 'var(--volt-primary, #e8ff3a)' }}>HER</span></span>
       </Link>
 
       {/* Desktop nav */}
@@ -215,7 +215,7 @@ export default function Header() {
             bottom: 0,
             background: 'var(--concrete-900, #1a1a1a)',
             zIndex: 99,
-            padding: '130px 24px 40px', /* 64px bar + 40px breathing room */
+            padding: '104px 24px 40px', /* 64px bar + 40px breathing room */
             display: 'flex',
             flexDirection: 'column',
             gap: '32px',
