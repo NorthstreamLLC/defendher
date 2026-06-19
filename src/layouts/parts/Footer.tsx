@@ -22,7 +22,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <div style={{ marginBottom: '12px' }}>
-            <img src="/defendher_logo.png" alt="DefendHer" style={{ height: '44px', width: 'auto', display: 'block' }} />
+            <img src="/hero.svg" alt="DefendHer" style={{ height: '44px', width: 'auto', display: 'block' }} />
           </div>
           <p
             style={{
