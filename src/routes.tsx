@@ -18,6 +18,7 @@ const ArticlesIndexPage = lazy(() => import('./pages/articles/index'));
 const ArticlePage = lazy(() => import('./pages/articles/[slug]'));
 const SitemapPage = lazy(() => import('./pages/sitemap'));
 const AboutPage = lazy(() => import('./pages/about'));
+const ContactPage = lazy(() => import('./pages/contact'));
 
 export const routes: RouteObject[] = [
   {
@@ -63,6 +64,10 @@ export const routes: RouteObject[] = [
   {
     path: '/about',
     element: <AboutPage />,
+  },
+  {
+    path: '/contact',
+    element: <ContactPage />,
   },
   {
     path: '/sitemap',
