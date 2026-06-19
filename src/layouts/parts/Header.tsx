@@ -18,7 +18,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
@@ -64,7 +63,7 @@ export default function Header() {
         style={{ flexShrink: 0, textDecoration: 'none', display: 'flex', alignItems: 'center' }}
         aria-label="DefendHer home"
       >
-        <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '20px', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#ffffff' }}>DEFEND<span style={{ color: 'var(--volt-primary, #e8ff3a)' }}>HER</span></span>
+        <img src="/hero.svg" alt="DefendHer Sport" style={{ height: '36px', width: 'auto', display: 'block' }} />
       </Link>
 
       {/* Desktop nav */}
@@ -101,7 +100,6 @@ export default function Header() {
               }}
             >
               {item.label}
-              {/* Kit-spec: 2px volt underline, scaleX from left, active always shown */}
               <span
                 className="nav-underline"
                 style={{
@@ -124,7 +122,6 @@ export default function Header() {
 
       {/* Desktop CTA + Cart + mobile toggle */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-        {/* Kit-spec: nav CTA — volt border pill, desktop only, hidden on shop pages */}
         {!isShop && (
         <Link
           to="/shop"
@@ -204,7 +201,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu overlay — z-index 99 sits below the nav bar (100) per kit spec */}
+      {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
         <div
           style={{
@@ -215,7 +212,7 @@ export default function Header() {
             bottom: 0,
             background: 'var(--concrete-900, #1a1a1a)',
             zIndex: 99,
-            padding: '104px 24px 40px', /* 64px bar + 40px breathing room */
+            padding: '104px 24px 40px',
             display: 'flex',
             flexDirection: 'column',
             gap: '32px',
