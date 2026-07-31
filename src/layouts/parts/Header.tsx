@@ -50,10 +50,10 @@ export default function Header() {
 
   const navItems = [
     { href: '/shop', label: 'SHOP' },
-    { href: '/videos', label: 'VIDEOS' },
-    { href: '/articles', label: 'JOURNAL' },
     { href: '/about', label: 'ABOUT' },
     { href: '/contact', label: 'CONTACT' },
+    { href: '/videos', label: 'VIDEOS' },
+    { href: '/articles', label: 'JOURNAL' },
   ];
 
   const isHome = location.pathname === '/';

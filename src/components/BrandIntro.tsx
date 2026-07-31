@@ -81,8 +81,12 @@ export default function BrandIntro() {
         onEnded={() => setLeaving(true)}
         onError={() => setLeaving(true)}
         style={{
-          width: 'min(320px, 78vw)',
-          height: 'auto',
+          // Fills the viewport. `contain` keeps the logo whole and un-stretched;
+          // the video's black edges blend into the black backdrop, so it reads
+          // as full screen. Swap to 'cover' once a landscape master is available.
+          width: '100%',
+          height: '100%',
+          objectFit: 'contain',
           display: 'block',
           pointerEvents: 'none',
         }}
