@@ -23,7 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Website>
       <Helmet>
-        <title>DefendHer Sport</title>
+        <title>DefendHer Sports</title>
         <meta name="description" content="App Template" />
       </Helmet>
       <ScrollRestoration />

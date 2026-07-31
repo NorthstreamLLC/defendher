@@ -4,7 +4,7 @@ export default function NotFoundPage() {
   return (
     <div
       style={{
-        paddingTop: '64px',
+        paddingTop: 'var(--header-h)',
         minHeight: '100vh',
         background: '#1a1a1a',
         display: 'flex',

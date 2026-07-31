@@ -6,6 +6,9 @@
 
 @layer base {
   :root {
+    /* Layout */
+    --header-h: 88px;
+
     /* Core Colors */
     --background: 0 0% 10%;
     --foreground: 0 0% 96%;

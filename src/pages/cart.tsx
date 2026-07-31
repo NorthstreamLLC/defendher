@@ -11,13 +11,13 @@ export default function CartPage() {
   return (
     <>
       <Helmet>
-        <title>Cart — DefendHer Sport</title>
+        <title>Cart — DefendHer Sports</title>
         <meta name="description" content="Your DefendHer cart." />
         <link rel="canonical" href={`${site}/cart`} />
         <meta name="robots" content="noindex" />
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', padding: 'clamp(48px, 6vw, 80px) 48px clamp(64px, 8vw, 96px)' }}>
           <h1
             style={{

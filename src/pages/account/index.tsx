@@ -89,7 +89,7 @@ export default function AccountPage() {
 
   if (loading) {
     return (
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ fontFamily: 'var(--font-heading)', fontSize: '32px', color: '#8a8a8a', textTransform: 'uppercase' }}>Loading...</div>
       </div>
     );
@@ -99,12 +99,12 @@ export default function AccountPage() {
     return (
       <>
         <Helmet>
-          <title>My Account — DefendHer Sport</title>
+          <title>My Account — DefendHer Sports</title>
           <meta name="description" content="Manage your DefendHer account." />
           <link rel="canonical" href={`${site}/account`} />
           <meta name="robots" content="noindex" />
         </Helmet>
-        <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a' }}>
+        <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', padding: 'clamp(48px, 6vw, 80px) 48px' }}>
 
             {/* Greeting */}
@@ -168,13 +168,13 @@ export default function AccountPage() {
   return (
     <>
       <Helmet>
-        <title>{mode === 'login' ? 'Sign In' : 'Create Account'} — DefendHer Sport</title>
+        <title>{mode === 'login' ? 'Sign In' : 'Create Account'} — DefendHer Sports</title>
         <meta name="description" content="Sign in or create your DefendHer account." />
         <link rel="canonical" href={`${site}/account`} />
         <meta name="robots" content="noindex" />
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 24px' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 24px' }}>
         <div style={{ width: '100%', maxWidth: '440px' }}>
 
           {/* Toggle */}

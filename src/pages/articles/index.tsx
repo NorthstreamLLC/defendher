@@ -8,10 +8,10 @@ export default function ArticlesIndexPage() {
   return (
     <>
       <Helmet>
-        <title>Articles — DefendHer Sport</title>
+        <title>Articles — DefendHer Sports</title>
         <meta name="description" content="Insights on women's hockey gear, protection standards, and the game." />
         <link rel="canonical" href={`${site}/articles`} />
-        <meta property="og:title" content="Articles — DefendHer Sport" />
+        <meta property="og:title" content="Articles — DefendHer Sports" />
         <meta property="og:description" content="Insights on women's hockey gear, protection standards, and the game." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${site}/articles`} />
@@ -19,13 +19,13 @@ export default function ArticlesIndexPage() {
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
           '@id': `${site}/articles#webpage`,
-          name: 'Articles — DefendHer Sport',
+          name: 'Articles — DefendHer Sports',
           url: `${site}/articles`,
           isPartOf: { '@id': `${site}/#website` },
         })}</script>
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: 'var(--concrete-900, #1a1a1a)' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: 'var(--concrete-900, #1a1a1a)' }}>
         {/* Page header */}
         <div style={{ padding: 'clamp(48px, 6vw, 80px) 48px 40px', borderBottom: '1px solid var(--line-subtle, #3d3d3d)' }}>
           <span style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--chalk-tertiary, #8a8a8a)', display: 'block', marginBottom: '12px' }}>

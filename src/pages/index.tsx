@@ -45,7 +45,7 @@ export default function HomePage() {
             {
               '@type': 'Organization',
               '@id': `${site}/#organization`,
-              name: 'DefendHer Sport',
+              name: 'DefendHer Sports',
               url: `${site}/`,
               description: 'Protective gear built for women\'s hockey',
             },

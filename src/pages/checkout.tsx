@@ -59,7 +59,7 @@ export default function CheckoutPage() {
 
   if (items.length === 0) {
     return (
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ textAlign: 'center' }}>
           <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '64px', color: '#ffffff', textTransform: 'uppercase', marginBottom: '24px' }}>CART EMPTY</h1>
           <Link to="/shop" style={{ color: '#e8ff3a', fontFamily: 'var(--font-sans)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Shop Now →</Link>
@@ -71,18 +71,18 @@ export default function CheckoutPage() {
   return (
     <>
       <Helmet>
-        <title>Checkout — DefendHer Sport</title>
+        <title>Checkout — DefendHer Sports</title>
         <meta name="description" content="Complete your DefendHer order." />
         <link rel="canonical" href={`${site}/checkout`} />
         <meta name="robots" content="noindex" />
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a' }}>
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: '55fr 45fr',
-            minHeight: 'calc(100vh - 64px)',
+            minHeight: 'calc(100vh - var(--header-h))',
             alignItems: 'start',
           }}
         >
@@ -211,8 +211,8 @@ export default function CheckoutPage() {
           <aside
             style={{
               position: 'sticky',
-              top: '64px',
-              height: 'calc(100vh - 64px)',
+              top: 'var(--header-h)',
+              height: 'calc(100vh - var(--header-h))',
               display: 'flex',
               flexDirection: 'column',
               borderTop: '3px solid #e8ff3a',

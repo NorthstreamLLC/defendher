@@ -15,12 +15,12 @@ export default function ShopPage() {
   return (
     <>
       <Helmet>
-        <title>Shop — DefendHer Sport</title>
+        <title>Shop — DefendHer Sports</title>
         <meta name="description" content="Shop DefendHer neck protectors for women's hockey. CE Level 1 certified, women-specific fit." />
         <link rel="canonical" href={`${site}/shop`} />
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a' }}>
         <div style={{ padding: 'clamp(48px, 6vw, 80px) 48px 40px', borderBottom: '1px solid #3d3d3d' }}>
           <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#8a8a8a', display: 'block', marginBottom: '12px' }}>
             DefendHer Store

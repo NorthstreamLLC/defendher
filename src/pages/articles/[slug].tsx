@@ -10,7 +10,7 @@ export default function ArticlePage() {
 
   if (!article) {
     return (
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ textAlign: 'center' }}>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '64px', color: 'var(--volt-primary, #e8ff3a)', textTransform: 'uppercase' }}>NOT FOUND</h1>
           <Link to="/articles" style={{ color: 'var(--chalk-secondary, #d4d4d4)', fontFamily: 'var(--font-body)' }}>Back to articles</Link>
@@ -24,16 +24,16 @@ export default function ArticlePage() {
   return (
     <>
       <Helmet>
-        <title>{article.title} — DefendHer Sport</title>
+        <title>{article.title} — DefendHer Sports</title>
         <meta name="description" content={article.subtitle} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content={`${article.title} — DefendHer Sport`} />
+        <meta property="og:title" content={`${article.title} — DefendHer Sports`} />
         <meta property="og:description" content={article.subtitle} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={`${site}${article.heroImage}`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${article.title} — DefendHer Sport`} />
+        <meta name="twitter:title" content={`${article.title} — DefendHer Sports`} />
         <meta name="twitter:description" content={article.subtitle} />
         <meta name="twitter:image" content={`${site}${article.heroImage}`} />
         <script type="application/ld+json">{JSON.stringify({
@@ -44,13 +44,13 @@ export default function ArticlePage() {
           image: `${site}${article.heroImage}`,
           datePublished: '2026-06-18',
           dateModified: '2026-06-18',
-          author: { '@type': 'Organization', name: 'DefendHer Sport', url: `${site}/` },
-          publisher: { '@type': 'Organization', name: 'DefendHer Sport', url: `${site}/` },
+          author: { '@type': 'Organization', name: 'DefendHer Sports', url: `${site}/` },
+          publisher: { '@type': 'Organization', name: 'DefendHer Sports', url: `${site}/` },
           mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
         })}</script>
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: 'var(--concrete-900, #1a1a1a)' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: 'var(--concrete-900, #1a1a1a)' }}>
 
         {/* ── HERO ── */}
         <div style={{ position: 'relative', width: '100%', height: 'clamp(400px, 55vw, 680px)', overflow: 'hidden', background: 'var(--concrete-800, #2e2e2e)' }}>

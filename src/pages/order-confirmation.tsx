@@ -10,13 +10,13 @@ export default function OrderConfirmationPage() {
   return (
     <>
       <Helmet>
-        <title>Order Confirmed — DefendHer Sport</title>
+        <title>Order Confirmed — DefendHer Sports</title>
         <meta name="description" content="Your DefendHer order has been confirmed." />
         <link rel="canonical" href={`${site}/order-confirmation`} />
         <meta name="robots" content="noindex" />
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a' }}>
         {/* Flow nav step indicator */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px', height: '56px', borderBottom: '1px solid #3d3d3d' }}>
           <span style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', color: '#e8ff3a', textTransform: 'uppercase', letterSpacing: '0.01em' }}>DEFENDHER</span>

@@ -17,7 +17,7 @@ export default function ProductDetailPage() {
 
   if (!product) {
     return (
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ textAlign: 'center' }}>
           <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '64px', color: '#e8ff3a', textTransform: 'uppercase' }}>NOT FOUND</h1>
           <Link to="/shop" style={{ color: '#d4d4d4', fontFamily: 'var(--font-sans)' }}>Back to shop</Link>
@@ -37,21 +37,21 @@ export default function ProductDetailPage() {
   return (
     <>
       <Helmet>
-        <title>{product.name} — DefendHer Sport</title>
+        <title>{product.name} — DefendHer Sports</title>
         <meta name="description" content={product.tagline} />
         <link rel="canonical" href={`${site}/product/${product.id}`} />
-        <meta property="og:title" content={`${product.name} — DefendHer Sport`} />
+        <meta property="og:title" content={`${product.name} — DefendHer Sports`} />
         <meta property="og:description" content={product.tagline} />
         <meta property="og:type" content="product" />
         <meta property="og:url" content={`${site}/product/${product.id}`} />
         <meta property="og:image" content={`${site}${product.image}`} />
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 'calc(100vh - 64px)', alignItems: 'start' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 'calc(100vh - var(--header-h))', alignItems: 'start' }}>
 
           {/* Left: image gallery */}
-          <div style={{ position: 'sticky', top: '64px', height: 'calc(100vh - 64px)', display: 'flex', flexDirection: 'column', background: '#2e2e2e' }}>
+          <div style={{ position: 'sticky', top: 'var(--header-h)', height: 'calc(100vh - var(--header-h))', display: 'flex', flexDirection: 'column', background: '#2e2e2e' }}>
             {/* Main image */}
             <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
               <img

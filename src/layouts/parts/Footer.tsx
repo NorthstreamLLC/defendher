@@ -22,7 +22,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <div style={{ marginBottom: '12px' }}>
-            <img src="/hero.svg" alt="DefendHer" style={{ height: '44px', width: 'auto', display: 'block' }} />
+            <img src="/logo-dhs.png" alt="DefendHer" style={{ height: '56px', width: 'auto', display: 'block' }} />
           </div>
           <p
             style={{
@@ -167,7 +167,7 @@ export default function Footer() {
             color: '#8a8a8a',
           }}
         >
-          © {currentYear} DefendHer Sport. All rights reserved.
+          © {currentYear} DefendHer Sports. All rights reserved.
         </span>
         <div style={{ display: 'flex', gap: '24px' }}>
           {[

@@ -47,7 +47,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'pullquote',
         text: "A neck protector that doesn't fit isn't a neck protector. It's a piece of foam that happens to be near your neck.",
-        attribution: 'DefendHer Sport',
+        attribution: 'DefendHer Sports',
       },
       {
         type: 'image',

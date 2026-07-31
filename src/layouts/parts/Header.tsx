@@ -40,7 +40,7 @@ export default function Header() {
         left: 0,
         right: 0,
         zIndex: 100,
-        height: '64px',
+        height: 'var(--header-h)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -63,7 +63,7 @@ export default function Header() {
         style={{ flexShrink: 0, textDecoration: 'none', display: 'flex', alignItems: 'center' }}
         aria-label="DefendHer home"
       >
-        <img src="/hero.svg" alt="DefendHer Sport" style={{ height: '36px', width: 'auto', display: 'block' }} />
+        <img src="/logo-dhs.png" alt="DefendHer Sports" style={{ height: '64px', width: 'auto', display: 'block' }} />
       </Link>
 
       {/* Desktop nav */}
@@ -212,7 +212,7 @@ export default function Header() {
             bottom: 0,
             background: 'var(--concrete-900, #1a1a1a)',
             zIndex: 99,
-            padding: '104px 24px 40px',
+            padding: 'calc(var(--header-h) + 40px) 24px 40px',
             display: 'flex',
             flexDirection: 'column',
             gap: '32px',

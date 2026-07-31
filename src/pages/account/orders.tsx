@@ -72,13 +72,13 @@ export default function OrdersPage() {
   return (
     <>
       <Helmet>
-        <title>Order History — DefendHer Sport</title>
+        <title>Order History — DefendHer Sports</title>
         <meta name="description" content="View and track your DefendHer orders." />
         <link rel="canonical" href={`${site}/account/orders`} />
         <meta name="robots" content="noindex" />
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', padding: 'clamp(48px, 6vw, 80px) 48px' }}>
 
           {/* Header */}

@@ -14,7 +14,7 @@ const SECTIONS: SitemapSection[] = [
   {
     label: 'Main',
     links: [
-      { href: '/', label: 'Home', description: "DefendHer Sport — neck protection built for women's hockey" },
+      { href: '/', label: 'Home', description: "DefendHer Sports — neck protection built for women's hockey" },
       { href: '/about', label: 'About', description: 'Our story and mission' },
       { href: '/contact', label: 'Contact', description: 'Get in touch with the team' },
     ],
@@ -63,23 +63,23 @@ export default function SitemapPage() {
   return (
     <>
       <Helmet>
-        <title>Sitemap — DefendHer Sport</title>
-        <meta name="description" content="All pages on DefendHer Sport — women's hockey neck protection." />
+        <title>Sitemap — DefendHer Sports</title>
+        <meta name="description" content="All pages on DefendHer Sports — women's hockey neck protection." />
         <link rel="canonical" href={`${site}/sitemap`} />
-        <meta property="og:title" content="Sitemap — DefendHer Sport" />
+        <meta property="og:title" content="Sitemap — DefendHer Sports" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${site}/sitemap`} />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebPage',
           '@id': `${site}/sitemap#webpage`,
-          name: 'Sitemap — DefendHer Sport',
+          name: 'Sitemap — DefendHer Sports',
           url: `${site}/sitemap`,
           isPartOf: { '@id': `${site}/#website` },
         })}</script>
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: 'var(--concrete-900, #1a1a1a)' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: 'var(--concrete-900, #1a1a1a)' }}>
         {/* Page header */}
         <div style={{ padding: 'clamp(48px, 6vw, 80px) 48px 40px', borderBottom: '1px solid var(--line-subtle, #3d3d3d)' }}>
           <span style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--chalk-tertiary, #8a8a8a)', display: 'block', marginBottom: '12px' }}>

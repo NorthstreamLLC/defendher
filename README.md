@@ -1,4 +1,4 @@
-# DefendHer Sport
+# DefendHer Sports
 
 E-commerce site for DefendHer women's hockey neck protectors.
 

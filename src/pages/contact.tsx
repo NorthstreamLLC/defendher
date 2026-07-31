@@ -10,12 +10,12 @@ export default function ContactPage() {
   return (
     <>
       <Helmet>
-        <title>Contact — DefendHer Sport</title>
-        <meta name="description" content="Get in touch with DefendHer Sport. Questions, wholesale inquiries, or just want to say hi — we'd love to hear from you." />
+        <title>Contact — DefendHer Sports</title>
+        <meta name="description" content="Get in touch with DefendHer Sports. Questions, wholesale inquiries, or just want to say hi — we'd love to hear from you." />
         <link rel="canonical" href={`${site}/contact`} />
       </Helmet>
 
-      <div style={{ paddingTop: '64px', minHeight: '100vh', background: '#1a1a1a' }}>
+      <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a' }}>
 
         {/* Header */}
         <div style={{ padding: 'clamp(64px, 8vw, 120px) clamp(24px, 6vw, 96px) 48px', borderBottom: '1px solid #3d3d3d' }}>
