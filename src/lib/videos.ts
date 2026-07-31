@@ -16,9 +16,9 @@ export const VIDEOS: VideoItem[] = [
     title: 'DefendHer Sports',
     description:
       'Built for her, from the ground up. Protective equipment designed for female athletes — starting with hockey.',
-    src: '/brand-intro.mp4',
+    src: '/hero-video.mp4',
     type: 'file',
-    poster: '/brand-intro-poster.jpg',
+    poster: '/hero-poster.jpg',
     category: 'Brand',
   },
 ];

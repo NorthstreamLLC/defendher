@@ -4,8 +4,12 @@ const SEEN_KEY = 'dh_intro_seen';
 
 /**
  * Brand intro overlay — plays the DefendHer logo animation once per browser
- * session, then fades away. Skipped entirely for users who prefer reduced
- * motion, and dismissible by click or any key.
+ * session, then fades away. Skipped for users who prefer reduced motion, and
+ * dismissible by click or any key.
+ *
+ * NOT CURRENTLY RENDERED: the homepage hero plays this same animation, so
+ * showing it here too would play it twice back to back. To re-enable, render
+ * <BrandIntro /> in App.tsx.
  */
 export default function BrandIntro() {
   const [show, setShow] = useState(false);
@@ -77,7 +81,7 @@ export default function BrandIntro() {
         muted
         playsInline
         preload="auto"
-        poster="/brand-intro-poster.jpg"
+        poster="/hero-poster.jpg"
         onEnded={() => setLeaving(true)}
         onError={() => setLeaving(true)}
         style={{
@@ -91,8 +95,7 @@ export default function BrandIntro() {
           pointerEvents: 'none',
         }}
       >
-        <source src="/brand-intro.webm" type="video/webm" />
-        <source src="/brand-intro.mp4" type="video/mp4" />
+        <source src="/hero-video.mp4" type="video/mp4" />
       </video>
 
       <button
