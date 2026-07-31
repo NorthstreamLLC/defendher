@@ -6,10 +6,6 @@ const SEEN_KEY = 'dh_intro_seen';
  * Brand intro overlay — plays the DefendHer logo animation once per browser
  * session, then fades away. Skipped for users who prefer reduced motion, and
  * dismissible by click or any key.
- *
- * NOT CURRENTLY RENDERED: the homepage hero plays this same animation, so
- * showing it here too would play it twice back to back. To re-enable, render
- * <BrandIntro /> in App.tsx.
  */
 export default function BrandIntro() {
   const [show, setShow] = useState(false);
@@ -32,8 +28,10 @@ export default function BrandIntro() {
     if (!show) return;
 
     const dismiss = () => setLeaving(true);
-    // Safety net: never trap the user if the video stalls
-    const failsafe = window.setTimeout(dismiss, 9000);
+    // The logo animation starts fading around 4.5s, so begin the overlay
+    // crossfade at 5s — the two fades overlap and the site appears without a
+    // dead beat at the end. Also acts as a safety net if the video stalls.
+    const failsafe = window.setTimeout(dismiss, 5000);
 
     window.addEventListener('keydown', dismiss);
     return () => {

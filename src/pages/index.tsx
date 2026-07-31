@@ -33,11 +33,11 @@ export default function HomePage() {
         <meta property="og:description" content="CE Level 1 certified neck protection engineered for women's hockey." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${site}/`} />
-        <meta property="og:image" content={`${site}/hero-poster.jpg`} />
+        <meta property="og:image" content={`${site}/hero.webp`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="DefendHer — Neck Protector Built for Women's Hockey" />
         <meta name="twitter:description" content="CE Level 1 certified neck protection engineered for women's hockey." />
-        <meta name="twitter:image" content={`${site}/hero-poster.jpg`} />
+        <meta name="twitter:image" content={`${site}/hero.webp`} />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@graph': [
@@ -79,28 +79,24 @@ export default function HomePage() {
         }}
         aria-label="DefendHer — Protect Her Game"
       >
-        {/* Full-bleed brand video.
-            Plays once on load and settles on its final frame. The poster is the
-            bright logo frame, so the first paint already shows the mark even
-            before the video decodes (and on browsers that block autoplay).
-            Add `loop` to the <video> tag if you want it to repeat. */}
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0, background: '#0d0d0d' }} aria-hidden="true">
-          <video
-            autoPlay
-            muted
-            playsInline
-            preload="auto"
-            poster="/hero-poster.jpg"
+        {/* Full-bleed photo */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }} aria-hidden="true">
+          <img
+            src="/hero.webp"
+            alt="Women's hockey player in action"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            loading="eager"
             style={{
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: 'center',
+              objectPosition: '65% center',
               display: 'block',
+              filter: 'saturate(0.12) contrast(1.1) brightness(0.55)',
             }}
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
+          />
         </div>
 
         {/* Gradient overlay — bottom fade for legibility */}
