@@ -505,21 +505,6 @@ export default function HomePage() {
               >
                 ADD TO CART
               </button>
-
-              <Link
-                to={`/product/${product.id}`}
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontWeight: 700,
-                  fontSize: '12px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  color: '#8a8a8a',
-                  textDecoration: 'none',
-                }}
-              >
-                VIEW DETAILS →
-              </Link>
             </div>
           </div>
         </div>

@@ -79,16 +79,17 @@ export default function AboutPage() {
                   background: '#2e2e2e',
                   border: '1px solid #3d3d3d',
                   borderRadius: '4px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
                   overflow: 'hidden',
                 }}
               >
-                {/* Replace this block with: <img src="/ally.jpg" alt="Ally Stymiest" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /> */}
-                <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#6a6a6a' }}>
-                  Photo coming soon
-                </span>
+                <img
+                  src="/ally.jpg"
+                  alt="Ally Stymiest, co-founder of DefendHer Sports, in her University of Southern Maine jersey"
+                  width={900}
+                  height={1124}
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
               </div>
             </div>
 
