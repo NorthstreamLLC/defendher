@@ -15,6 +15,7 @@ const ArticlePage = lazy(() => import('./pages/articles/[slug]'));
 const SitemapPage = lazy(() => import('./pages/sitemap'));
 const AboutPage = lazy(() => import('./pages/about'));
 const ContactPage = lazy(() => import('./pages/contact'));
+const VideosPage = lazy(() => import('./pages/videos'));
 
 export const routes: RouteObject[] = [
   {
@@ -64,6 +65,10 @@ export const routes: RouteObject[] = [
   {
     path: '/contact',
     element: <ContactPage />,
+  },
+  {
+    path: '/videos',
+    element: <VideosPage />,
   },
   {
     path: '/sitemap',

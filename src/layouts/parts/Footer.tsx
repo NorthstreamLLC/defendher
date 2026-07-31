@@ -92,6 +92,7 @@ export default function Footer() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {[
               { href: '/articles', label: 'All Articles' },
+              { href: '/videos', label: 'Videos' },
               { href: '/articles/why-girls-hockey-needs-better-gear', label: "Why Girls' Hockey Deserves Better Gear" },
             ].map((item) => (
               <Link

@@ -32,7 +32,7 @@ export default function AboutPage() {
         {/* Mission */}
         <div style={{ padding: 'clamp(48px, 6vw, 96px) clamp(24px, 6vw, 96px)', borderBottom: '1px solid #3d3d3d', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', maxWidth: '1200px' }}>
           {[
-            { label: 'Our Mission', body: 'To design protective equipment that actually fits the female body — engineered from scratch, not shrunk from men’s templates. Every decision we make starts with the female athlete.' },
+            { label: 'Our Mission', body: 'To redefine women’s sports equipment by designing innovative, comfortable, and protective products created by women, for women. We are committed to putting female athletes first, listening to their needs, and developing gear that helps them perform with confidence while feeling represented, supported, and empowered.' },
             { label: 'Our Standard', body: 'CE Level 1 certified protection in every product we ship. That’s not a marketing claim — it’s a minimum threshold. If it doesn’t meet the standard, it doesn’t leave the building.' },
             { label: 'Our Promise', body: 'We’ll always be honest about what our gear does and doesn’t do, and we’ll keep improving it. As we grow, that promise extends to every sport we build for.' },
           ].map(({ label, body }) => (
