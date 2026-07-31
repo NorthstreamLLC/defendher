@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import { createRoot, hydrateRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from '@dr.pogodin/react-helmet';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
@@ -27,22 +27,12 @@ const queryClient = new QueryClient({
 const rootElement = document.getElementById('app');
 if (!rootElement) throw new Error('Root element not found');
 
-const providers = (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </HelmetProvider>
-);
-
-const tree = (
+createRoot(rootElement).render(
   <StrictMode>
-    {providers}
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </HelmetProvider>
   </StrictMode>
 );
-
-if (rootElement.firstElementChild) {
-  hydrateRoot(rootElement, tree);
-} else {
-  createRoot(rootElement).render(tree);
-}

@@ -1,11 +1,7 @@
 import { RouteObject } from 'react-router-dom';
 import { lazy } from 'react';
 import HomePage from './pages/index';
-import ProdNotFoundPage from './pages/_404';
-
-const NotFoundPage = import.meta.env.DEV
-  ? lazy(() => import('../dev-tools/src/PageNotFound'))
-  : ProdNotFoundPage;
+import NotFoundPage from './pages/_404';
 
 const ShopPage = lazy(() => import('./pages/shop'));
 const ProductDetailPage = lazy(() => import('./pages/product/[id]'));

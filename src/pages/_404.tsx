@@ -1,35 +1,62 @@
-import { Link } from '../router';
+import { Link } from 'react-router-dom';
 
-/**
- * 404 Not Found page component
- *
- * Displays a user-friendly error page when a route is not found.
- * Includes navigation to available pages and a back button.
- * The layout (header/footer) is handled by RootLayout in App.tsx.
- */
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(to bottom right, hsl(var(--primary)), hsl(var(--secondary)))' }}>
-    <div className="container mx-auto px-4 max-w-2xl text-center">
-      <div className="space-y-8">
-        <div className="space-y-4">
-          <h1 className="text-6xl font-bold text-white/90">404</h1>
-          <h2 className="text-2xl font-semibold text-white/90">
-            Page Not Found
-          </h2>
-          <p className="text-white/90">
-            Sorry, the page you're looking for doesn't exist or has been moved.
-          </p>
-        </div>
-
-        <div className="flex justify-center gap-4">
-          <Link to="/">
-            <button className="px-8 py-3 bg-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105" style={{ color: 'hsl(var(--primary))' }}>🏠 Go Home</button>
-          </Link>
-          <button className="px-8 py-3 bg-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105" style={{ color: 'hsl(var(--primary))' }} onClick={() => window.history.back()}>← Go Back</button>
-        </div>
+    <div
+      style={{
+        paddingTop: '64px',
+        minHeight: '100vh',
+        background: '#1a1a1a',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <div style={{ textAlign: 'center', padding: '0 24px' }}>
+        <h1
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(80px, 15vw, 160px)',
+            fontWeight: 400,
+            lineHeight: 0.85,
+            color: '#e8ff3a',
+            textTransform: 'uppercase',
+            margin: '0 0 16px',
+          }}
+        >
+          404
+        </h1>
+        <p
+          style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '15px',
+            color: '#8a8a8a',
+            marginBottom: '32px',
+          }}
+        >
+          This page doesn't exist or has been moved.
+        </p>
+        <Link
+          to="/"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            background: 'transparent',
+            border: '2px solid #e8ff3a',
+            color: '#e8ff3a',
+            borderRadius: '9999px',
+            padding: '14px 28px',
+            fontFamily: 'var(--font-sans)',
+            fontWeight: 700,
+            fontSize: '12px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em',
+            textDecoration: 'none',
+          }}
+        >
+          Back to Home
+        </Link>
       </div>
     </div>
-  </div>
   );
 }
