@@ -2,10 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 
 const SEEN_KEY = 'dh_intro_seen';
 
+/** Guards against React StrictMode double-mounting the effect in development. */
+let mountedOnce = false;
+
 /**
- * Brand intro overlay — plays the DefendHer logo animation once per browser
- * session, then fades away. Skipped for users who prefer reduced motion, and
- * dismissible by click or any key.
+ * Brand intro splash — plays the DefendHer logo animation full screen once per
+ * browser session, then crossfades away to reveal the site.
+ *
+ * Skipped for users who prefer reduced motion. Dismissible by click, any key,
+ * or the Skip button.
+ *
+ * To see it again while testing: open a new incognito window, or run
+ * `sessionStorage.removeItem('dh_intro_seen')` in the browser console and
+ * reload.
  */
 export default function BrandIntro() {
   const [show, setShow] = useState(false);
@@ -14,15 +23,33 @@ export default function BrandIntro() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    if (mountedOnce) return;
+    mountedOnce = true;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const alreadySeen = sessionStorage.getItem(SEEN_KEY) === '1';
+    if (reduceMotion) return;
 
-    if (reduceMotion || alreadySeen) return;
+    let alreadySeen = false;
+    try {
+      alreadySeen = sessionStorage.getItem(SEEN_KEY) === '1';
+    } catch {
+      // Private mode or storage disabled — just show the intro.
+    }
+    if (alreadySeen) return;
 
-    sessionStorage.setItem(SEEN_KEY, '1');
     setShow(true);
   }, []);
+
+  // Mark as seen only once it has actually been displayed, so a stalled load
+  // doesn't silently burn the one showing for this session.
+  useEffect(() => {
+    if (!show) return;
+    try {
+      sessionStorage.setItem(SEEN_KEY, '1');
+    } catch {
+      /* ignore */
+    }
+  }, [show]);
 
   useEffect(() => {
     if (!show) return;
@@ -30,7 +57,7 @@ export default function BrandIntro() {
     const dismiss = () => setLeaving(true);
     // The logo animation starts fading around 4.5s, so begin the overlay
     // crossfade at 5s — the two fades overlap and the site appears without a
-    // dead beat at the end. Also acts as a safety net if the video stalls.
+    // dead beat. Also a safety net if the video stalls or autoplay is blocked.
     const failsafe = window.setTimeout(dismiss, 5000);
 
     window.addEventListener('keydown', dismiss);
@@ -52,6 +79,18 @@ export default function BrandIntro() {
     return () => {
       document.body.style.overflow = '';
     };
+  }, [show]);
+
+  // Some browsers ignore the autoplay attribute; ask explicitly too.
+  useEffect(() => {
+    if (!show) return;
+    const v = videoRef.current;
+    if (!v) return;
+    const p = v.play();
+    if (p && typeof p.catch === 'function') {
+      // Autoplay blocked — the poster frame still shows, then we fade out.
+      p.catch(() => undefined);
+    }
   }, [show]);
 
   if (!show) return null;
@@ -83,9 +122,6 @@ export default function BrandIntro() {
         onEnded={() => setLeaving(true)}
         onError={() => setLeaving(true)}
         style={{
-          // Fills the viewport. `contain` keeps the logo whole and un-stretched;
-          // the video's black edges blend into the black backdrop, so it reads
-          // as full screen. Swap to 'cover' once a landscape master is available.
           width: '100%',
           height: '100%',
           objectFit: 'contain',
