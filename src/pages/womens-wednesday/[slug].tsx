@@ -91,7 +91,7 @@ export default function WomensWednesdayPostPage() {
           }}
         >
           <img
-            src={post.image}
+            src={post.hero ?? post.image}
             alt={post.title}
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.45)' }}
           />

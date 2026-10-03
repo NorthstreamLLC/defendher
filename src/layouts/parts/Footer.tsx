@@ -28,8 +28,17 @@ function IconLinkedIn() {
   );
 }
 
+function IconTikTok() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.6 6.7a4.8 4.8 0 0 1-3.8-4.2h-3.4v13.3a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .8.1V9.5a6.3 6.3 0 1 0 5.5 6.3V9a8.2 8.2 0 0 0 4.800 1.500V7.100c-.3 0-.7-.1-1-.4z" />
+    </svg>
+  );
+}
+
 const socials = [
   { href: 'https://www.instagram.com/defendhersports', label: 'Instagram', Icon: IconInstagram },
+  { href: 'https://www.tiktok.com/@defendhersports', label: 'TikTok', Icon: IconTikTok },
   { href: 'https://x.com/DefendHERsport', label: 'X (Twitter)', Icon: IconX },
   { href: 'https://www.linkedin.com/in/defendher-sports-22a54343a/', label: 'LinkedIn', Icon: IconLinkedIn },
 ];

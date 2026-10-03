@@ -21,6 +21,7 @@ export interface WW {
   title: string;
   date: string;
   image: string;
+  hero?: string;
   summary: string;
   body: string[];
 }
@@ -48,7 +49,8 @@ export const WOMENS_WEDNESDAY: WW[] = [
     slug: 'introducing-womens-wednesday',
     title: "Introducing Women's Wednesday",
     date: 'October 8, 2026',
-    image: '/article.webp',
+    image: '/ww-thumb.jpg',
+    hero: '/ww-hero.jpg',
     summary: "Every Wednesday we take a little time to learn more about the women, moments, and stories that have shaped sports.",
     body: [
       "Welcome to our newest series — Women's Wednesday.",
