@@ -1,5 +1,6 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { HeroSocials } from '../components/Socials';
 
@@ -297,6 +298,28 @@ export default function HomePage() {
           >
             DefendHer is building protection that was engineered from scratch for women — with the fit, the comfort, and the performance the female athlete deserves.
           </p>
+
+          <Link
+            to="/product"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              marginTop: '28px',
+              background: '#e8ff3a',
+              color: '#1a1a1a',
+              borderRadius: '9999px',
+              padding: '14px 28px',
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 700,
+              fontSize: '13px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              textDecoration: 'none',
+            }}
+          >
+            Explore the product <ArrowRight size={15} />
+          </Link>
         </div>
 
         {/* Prototype photo stack */}
