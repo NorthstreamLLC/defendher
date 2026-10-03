@@ -30,12 +30,12 @@ function renderBody(lines: string[]) {
         <blockquote
           key={i}
           style={{
-            borderLeft: '3px solid #e8ff3a',
-            paddingLeft: '24px',
-            margin: '40px 0',
+            margin: '48px 0',
+            padding: '28px 0 0',
+            borderTop: '2px solid #e8ff3a',
           }}
         >
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(18px, 2vw, 22px)', color: '#ffffff', lineHeight: 1.5, fontStyle: 'italic', margin: 0 }}>
+          <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(22px, 3vw, 32px)', color: '#ffffff', lineHeight: 1.2, textTransform: 'uppercase', letterSpacing: '0.01em', margin: 0 }}>
             {line.slice(3)}
           </p>
         </blockquote>
