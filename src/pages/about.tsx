@@ -118,6 +118,25 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* PLAYERS */}
+        <div style={{ borderTop: '1px solid #3d3d3d', padding: 'clamp(48px, 6vw, 96px) clamp(24px, 6vw, 96px)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
+          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#8a8a8a' }}>
+            Tested by players
+          </span>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 600, color: '#ffffff', lineHeight: 1.35, maxWidth: '36ch', margin: 0 }}>
+            &ldquo;Because it&rsquo;s one piece it stays in the correct place during the game.&rdquo;
+          </p>
+          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: '#8a8a8a' }}>
+            Felicia S&aring;nnevall, NDHL &middot; Sundsvall
+          </span>
+          <a
+            href="/testimonials"
+            style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a', textDecoration: 'none' }}
+          >
+            Read what players say &rarr;
+          </a>
+        </div>
+
         {/* CTA */}
         <div style={{ padding: 'clamp(48px, 6vw, 96px) clamp(24px, 6vw, 96px)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '24px' }}>
           <p style={{ fontFamily: 'var(--font-sans)', fontSize: '24px', fontWeight: 700, color: '#ffffff', margin: 0 }}>

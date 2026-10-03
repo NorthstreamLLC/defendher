@@ -20,10 +20,8 @@ export default function Header() {
 
   const navItems = [
     { href: '/product', label: 'PRODUCT' },
-    { href: '/testimonials', label: 'TESTIMONIALS' },
     { href: '/about', label: 'ABOUT' },
     { href: '/articles', label: 'JOURNAL' },
-    { href: '/videos', label: 'VIDEOS' },
     { href: '/contact', label: 'CONTACT' },
   ];
 
@@ -61,7 +59,7 @@ export default function Header() {
       {/* Desktop nav */}
       <nav className="hidden md:flex" style={{ gap: '36px', alignItems: 'center' }}>
         {navItems.map((item) => {
-          const isActive = location.pathname === item.href || location.pathname.startsWith(item.href + '/') || (item.href === '/articles' && location.pathname.startsWith('/womens-wednesday'));
+          const isActive = location.pathname === item.href || location.pathname.startsWith(item.href + '/') || (item.href === '/articles' && location.pathname.startsWith('/womens-wednesday')) || (item.href === '/about' && location.pathname.startsWith('/testimonials'));
           return (
             <Link
               key={item.href}
