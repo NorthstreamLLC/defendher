@@ -46,10 +46,10 @@ const body: React.CSSProperties = {
   margin: '0 0 16px',
 };
 
-function PatentPhoto({ src, alt, ratio = '3/4' }: { src: string; alt: string; ratio?: string }) {
+function PatentPhoto({ src, alt, ratio = '3/4', eager = false }: { src: string; alt: string; ratio?: string; eager?: boolean }) {
   return (
     <div style={{ position: 'relative', aspectRatio: ratio, overflow: 'hidden', borderRadius: '4px', background: '#2e2e2e' }}>
-      <img src={src} alt={alt} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+      <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
       <div aria-hidden="true" style={{ position: 'absolute', inset: 0, backgroundImage: WATERMARK, backgroundSize: '300px 140px' }} />
       <span
         style={{
@@ -74,6 +74,7 @@ function PatentPhoto({ src, alt, ratio = '3/4' }: { src: string; alt: string; ra
 }
 
 export default function ProductPage() {
+  const [active, setActive] = useState(0);
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
@@ -145,7 +146,24 @@ export default function ProductPage() {
             </div>
           </div>
           <div style={{ maxWidth: '520px', width: '100%', justifySelf: 'center' }}>
-            <PatentPhoto src={PHOTOS[0].src} alt={PHOTOS[0].alt} ratio="4/5" />
+            <PatentPhoto src={PHOTOS[active].src} alt={PHOTOS[active].alt} ratio="4/5" eager />
+            <div style={{ display: 'grid', gridTemplateColumns: `repeat(${PHOTOS.length}, 1fr)`, gap: '8px', marginTop: '8px' }}>
+              {PHOTOS.map((p, i) => (
+                <button
+                  key={p.src}
+                  type="button"
+                  onClick={() => setActive(i)}
+                  aria-label={`Show photo ${i + 1} of ${PHOTOS.length}`}
+                  aria-current={i === active}
+                  style={{ padding: 0, background: '#2e2e2e', border: i === active ? '2px solid #e8ff3a' : '2px solid transparent', borderRadius: '4px', overflow: 'hidden', cursor: 'pointer', aspectRatio: '1/1', opacity: i === active ? 1 : 0.65 }}
+                >
+                  <img src={p.src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                </button>
+              ))}
+            </div>
+            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a', margin: '12px 0 0' }}>
+              {PHOTOS.length} prototype photos. Early prototype shown; final design and materials may change before launch.
+            </p>
           </div>
         </section>
 
@@ -164,20 +182,6 @@ export default function ProductPage() {
               </div>
             ))}
           </div>
-        </section>
-
-        {/* GALLERY */}
-        <section style={{ borderTop: '1px solid #3d3d3d', padding: 'clamp(64px, 9vw, 120px) clamp(24px, 5vw, 80px)', maxWidth: '1280px', margin: '0 auto' }}>
-          <span style={label}>The prototype</span>
-          <h2 style={h2}>SEE IT<br />IN THE ROOM</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
-            {PHOTOS.map((p) => (
-              <PatentPhoto key={p.src} src={p.src} alt={p.alt} />
-            ))}
-          </div>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a', marginTop: '16px' }}>
-            Early prototype shown. Final design and materials may change before launch.
-          </p>
         </section>
 
         {/* STORY */}

@@ -27,60 +27,55 @@ export default function ArticlesIndexPage() {
 
       <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: 'var(--concrete-900, #1a1a1a)' }}>
         {/* Page header */}
-        <div style={{ padding: 'clamp(48px, 6vw, 80px) 48px 40px', borderBottom: '1px solid var(--line-subtle, #3d3d3d)' }}>
-          <span style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--chalk-tertiary, #8a8a8a)', display: 'block', marginBottom: '12px' }}>
+        <div style={{ padding: 'clamp(28px, 4vw, 44px) clamp(20px, 4vw, 48px) 24px' }}>
+          <span style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--chalk-tertiary, #8a8a8a)', display: 'block', marginBottom: '8px' }}>
             DefendHer Journal
           </span>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(56px, 8vw, 96px)', fontWeight: 400, letterSpacing: '0.01em', lineHeight: 0.85, color: 'var(--chalk-primary, #ffffff)', textTransform: 'uppercase', margin: 0 }}>
-            ARTICLES
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(44px, 6vw, 72px)', fontWeight: 400, letterSpacing: '0.01em', lineHeight: 0.85, color: 'var(--chalk-primary, #ffffff)', textTransform: 'uppercase', margin: 0 }}>
+            JOURNAL
           </h1>
         </div>
 
-        {/* Women's Wednesday hero */}
-        <div style={{ background: '#111111', borderBottom: '1px solid var(--line-subtle, #3d3d3d)' }}>
+        {/* Women's Wednesday banner */}
+        <div style={{ background: '#111111', borderTop: '1px solid var(--line-subtle, #3d3d3d)', borderBottom: '1px solid var(--line-subtle, #3d3d3d)' }}>
           <Link
             to="/womens-wednesday"
             style={{
               textDecoration: 'none',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: 'clamp(32px, 5vw, 80px)',
+              display: 'flex',
+              flexWrap: 'wrap',
               alignItems: 'center',
-              padding: 'clamp(40px, 5vw, 72px) clamp(20px, 4vw, 48px)',
-              maxWidth: '1280px',
-              margin: '0 auto',
+              gap: 'clamp(16px, 3vw, 40px)',
+              padding: '20px clamp(20px, 4vw, 48px)',
             }}
           >
-            <div>
-              <span style={{ fontFamily: 'var(--font-body)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#e8ff3a', display: 'block', marginBottom: '16px' }}>
+            <img
+              src="/ww-thumb.jpg"
+              alt="Women's Wednesday. Women. Sports. Stories. Impact."
+              style={{ width: '120px', aspectRatio: '4/3', objectFit: 'cover', display: 'block', borderRadius: '2px', flexShrink: 0 }}
+            />
+            <div style={{ flex: '1 1 240px' }}>
+              <span style={{ fontFamily: 'var(--font-body)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#e8ff3a', display: 'block', marginBottom: '6px' }}>
                 Weekly Series &middot; Every Wednesday
               </span>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(56px, 9vw, 120px)', fontWeight: 400, letterSpacing: '0.01em', lineHeight: 0.85, color: '#ffffff', textTransform: 'uppercase', margin: '0 0 20px' }}>
-                WOMEN&apos;S<br />WEDNESDAY
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 4.5vw, 52px)', fontWeight: 400, letterSpacing: '0.01em', lineHeight: 0.9, color: '#ffffff', textTransform: 'uppercase', margin: 0 }}>
+                WOMEN&apos;S WEDNESDAY
               </h2>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '17px', color: '#d4d4d4', lineHeight: 1.6, maxWidth: '44ch', margin: '0 0 28px' }}>
-                Women. Sports. Stories. Impact. The women, moments, and stories that shaped the game.
-              </p>
-              <span style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#1a1a1a', background: '#e8ff3a', borderRadius: '9999px', padding: '14px 28px', display: 'inline-block' }}>
-                Read the series &rarr;
-              </span>
             </div>
-            <img
-              src="/ww-graphic.jpg"
-              alt="Women's Wednesday. Women. Sports. Stories. Impact."
-              style={{ width: '100%', maxWidth: '400px', justifySelf: 'center', aspectRatio: '4/5', objectFit: 'cover', display: 'block', borderRadius: '2px' }}
-            />
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#1a1a1a', background: '#e8ff3a', borderRadius: '9999px', padding: '12px 22px', whiteSpace: 'nowrap' }}>
+              Read the series &rarr;
+            </span>
           </Link>
         </div>
 
-        <div style={{ padding: 'clamp(40px, 5vw, 64px) 48px 0' }}>
+        <div style={{ padding: 'clamp(24px, 3vw, 36px) clamp(20px, 4vw, 48px) 0' }}>
           <span style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--chalk-tertiary, #8a8a8a)' }}>
             More from the Journal
           </span>
         </div>
 
         {/* Article list */}
-        <div style={{ padding: '0 48px clamp(80px, 10vw, 120px)' }}>
+        <div style={{ padding: '0 clamp(20px, 4vw, 48px) clamp(80px, 10vw, 120px)' }}>
           {ARTICLES.map((article) => (
             <Link
               key={article.slug}
