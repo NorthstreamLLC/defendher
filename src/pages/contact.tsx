@@ -33,8 +33,7 @@ export default function ContactPage() {
           {/* Contact details */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
             {[
-              { label: 'Email', value: 'hello@defendhersport.net', href: 'mailto:hello@defendhersport.net' },
-              { label: 'Address', value: '123 Placeholder St\n[City, Province, Postal Code]\nCanada', href: null },
+              { label: 'Email', value: 'Defendhersports@gmail.com', href: 'mailto:Defendhersports@gmail.com' },
               { label: 'Hours', value: 'Monday – Friday\n9am – 5pm CT', href: null },
             ].map(({ label, value, href }) => (
               <div key={label}>

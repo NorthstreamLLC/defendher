@@ -138,10 +138,10 @@ export default function Footer() {
             Get in touch
           </div>
           <a
-            href="mailto:hello@defendhersport.net"
+            href="mailto:Defendhersports@gmail.com"
             style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: '#d4d4d4', textDecoration: 'none', display: 'block', marginBottom: '8px' }}
           >
-            hello@defendhersport.net
+            Defendhersports@gmail.com
           </a>
           <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: '#8a8a8a', lineHeight: 1.5, marginTop: '12px' }}>
             Product patent pending.<br />Launching soon.

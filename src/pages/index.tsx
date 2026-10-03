@@ -585,10 +585,10 @@ export default function HomePage() {
         >
           Questions? Reach us at{' '}
           <a
-            href="mailto:hello@defendhersport.net"
+            href="mailto:Defendhersports@gmail.com"
             style={{ color: '#d4d4d4', textDecoration: 'none' }}
           >
-            hello@defendhersport.net
+            Defendhersports@gmail.com
           </a>
         </p>
       </section>

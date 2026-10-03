@@ -156,8 +156,8 @@ export default function ShopPage() {
 
           <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a', marginTop: '24px' }}>
             Questions?{' '}
-            <a href="mailto:hello@defendhersport.net" style={{ color: '#d4d4d4', textDecoration: 'none' }}>
-              hello@defendhersport.net
+            <a href="mailto:Defendhersports@gmail.com" style={{ color: '#d4d4d4', textDecoration: 'none' }}>
+              Defendhersports@gmail.com
             </a>
           </p>
         </div>
