@@ -107,6 +107,8 @@ export default function HomePage() {
             paddingRight: 'clamp(24px, 5vw, 80px)',
           }}
         >
+          <HeroSocials />
+
           <span
             style={{
               fontFamily: 'var(--font-sans)',
@@ -226,7 +228,6 @@ export default function HomePage() {
             </form>
           )}
 
-          <HeroSocials />
         </div>
       </section>
 
