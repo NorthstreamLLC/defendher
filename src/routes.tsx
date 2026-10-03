@@ -2,6 +2,7 @@ import { Navigate, RouteObject } from 'react-router-dom';
 import { lazy } from 'react';
 import HomePage from './pages/index';
 import NotFoundPage from './pages/_404';
+import ProductPage from './pages/product';
 
 const ShopPage = lazy(() => import('./pages/shop'));
 const ArticlesIndexPage = lazy(() => import('./pages/articles/index'));
@@ -21,6 +22,10 @@ export const routes: RouteObject[] = [
   {
     path: '/shop',
     element: <ShopPage />,
+  },
+  {
+    path: '/product',
+    element: <ProductPage />,
   },
   {
     path: '/product/:id',

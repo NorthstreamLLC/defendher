@@ -19,6 +19,7 @@ export default function Header() {
   }, [location.pathname]);
 
   const navItems = [
+    { href: '/product', label: 'PRODUCT' },
     { href: '/about', label: 'ABOUT' },
     { href: '/articles', label: 'JOURNAL' },
     { href: '/videos', label: 'VIDEOS' },
