@@ -67,7 +67,7 @@ export function FollowStrip() {
       }}
     >
       <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#ffffff' }}>
-        Follow the build
+        Follow the journey
       </span>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 28px' }}>
         {socials.map(({ href, label, Icon }) => (
@@ -83,6 +83,28 @@ export function FollowStrip() {
           </a>
         ))}
       </div>
+    </div>
+  );
+}
+
+export function HeroSocials() {
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px 20px', marginTop: '28px' }}>
+      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#d4d4d4' }}>
+        Follow the journey
+      </span>
+      {socials.map(({ href, label, Icon }) => (
+        <a
+          key={href}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={label}
+          style={{ color: '#ffffff', display: 'flex' }}
+        >
+          <Icon />
+        </a>
+      ))}
     </div>
   );
 }
