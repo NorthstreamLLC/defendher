@@ -20,6 +20,7 @@ export default function Header() {
 
   const navItems = [
     { href: '/about', label: 'ABOUT' },
+    { href: '/womens-wednesday', label: "WW" },
     { href: '/articles', label: 'JOURNAL' },
     { href: '/videos', label: 'VIDEOS' },
     { href: '/contact', label: 'CONTACT' },

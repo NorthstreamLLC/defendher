@@ -16,6 +16,8 @@ const SitemapPage = lazy(() => import('./pages/sitemap'));
 const AboutPage = lazy(() => import('./pages/about'));
 const ContactPage = lazy(() => import('./pages/contact'));
 const VideosPage = lazy(() => import('./pages/videos'));
+const WomensWednesdayPage = lazy(() => import('./pages/womens-wednesday/index'));
+const WomensWednesdayPostPage = lazy(() => import('./pages/womens-wednesday/[slug]'));
 
 export const routes: RouteObject[] = [
   {
@@ -69,6 +71,14 @@ export const routes: RouteObject[] = [
   {
     path: '/videos',
     element: <VideosPage />,
+  },
+  {
+    path: '/womens-wednesday',
+    element: <WomensWednesdayPage />,
+  },
+  {
+    path: '/womens-wednesday/:slug',
+    element: <WomensWednesdayPostPage />,
   },
   {
     path: '/sitemap',

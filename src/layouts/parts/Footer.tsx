@@ -106,6 +106,7 @@ export default function Footer() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {[
               { href: '/about', label: 'About' },
+              { href: '/womens-wednesday', label: "Women's Wednesday" },
               { href: '/articles', label: 'Journal' },
               { href: '/videos', label: 'Videos' },
               { href: '/contact', label: 'Contact' },
