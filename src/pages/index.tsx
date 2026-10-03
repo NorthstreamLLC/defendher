@@ -1,72 +1,46 @@
-import { Link } from 'react-router-dom';
 import { Helmet } from '@dr.pogodin/react-helmet';
-import { ArrowRight, Shield, Star } from 'lucide-react';
-import { useCartStore } from '@/lib/cart-store';
-import { PRODUCTS } from '@/lib/products';
+import { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const site = 'https://defendhersport.net';
 
 export default function HomePage() {
-  const addItem = useCartStore((s) => s.addItem);
-  const product = PRODUCTS[0];
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-  function handleAddToCart() {
-    addItem({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      size: 'M',
-      image: product.image,
-    });
+  function handleSignup(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email || !email.includes('@')) {
+      setError('Please enter a valid email.');
+      return;
+    }
+    // No backend connected yet — show honest message
+    setSubmitted(true);
+    setError('');
   }
 
   return (
     <>
       <Helmet>
-        <title>DefendHer — Neck Protector Built for Women's Hockey</title>
+        <title>DefendHer — Neck Protection Built for Women's Hockey</title>
         <meta
           name="description"
-          content="DefendHer makes CE Level 1 certified neck protection engineered specifically for women's hockey. Women-specific fit, high-density foam, free shipping over $75."
+          content="DefendHer is building neck protection engineered specifically for women's hockey. Join the waitlist to be first to know when we launch."
         />
         <link rel="canonical" href={`${site}/`} />
-        <meta property="og:title" content="DefendHer — Neck Protector Built for Women's Hockey" />
-        <meta property="og:description" content="CE Level 1 certified neck protection engineered for women's hockey." />
+        <meta property="og:title" content="DefendHer — Coming Soon" />
+        <meta property="og:description" content="Neck protection built for women's hockey. Launching soon." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${site}/`} />
-        <meta property="og:image" content={`${site}/hero.webp`} />
+        <meta property="og:image" content={`${site}/ice-rink.webp`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="DefendHer — Neck Protector Built for Women's Hockey" />
-        <meta name="twitter:description" content="CE Level 1 certified neck protection engineered for women's hockey." />
-        <meta name="twitter:image" content={`${site}/hero.webp`} />
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@graph': [
-            { '@type': 'WebSite', '@id': `${site}/#website`, name: 'DefendHer', url: `${site}/` },
-            {
-              '@type': 'Organization',
-              '@id': `${site}/#organization`,
-              name: 'DefendHer Sports',
-              url: `${site}/`,
-              description: 'Protective gear built for women\'s hockey',
-            },
-            {
-              '@type': 'WebPage',
-              '@id': `${site}/#webpage`,
-              url: `${site}/`,
-              name: 'DefendHer — Neck Protector Built for Women\'s Hockey',
-              isPartOf: { '@id': `${site}/#website` },
-              about: { '@id': `${site}/#organization` },
-              datePublished: '2026-06-18',
-              dateModified: '2026-06-18',
-            },
-          ],
-        })}</script>
+        <meta name="twitter:title" content="DefendHer — Coming Soon" />
+        <meta name="twitter:description" content="Neck protection built for women's hockey. Launching soon." />
+        <meta name="twitter:image" content={`${site}/ice-rink.webp`} />
       </Helmet>
 
-      {/* ═══════════════════════════════════════
-          ACT 1 — HERO OVERPRINT
-          Full viewport. Volt headline bottom-left.
-      ════════════════════════════════════════ */}
+      {/* ── HERO ── */}
       <section
         style={{
           position: 'relative',
@@ -79,38 +53,35 @@ export default function HomePage() {
         }}
         aria-label="DefendHer — Protect Her Game"
       >
-        {/* Full-bleed photo */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }} aria-hidden="true">
           <img
-            src="/hero.webp"
-            alt="Women's hockey player in action"
-            width={1920}
-            height={1080}
+            src="/ice-rink.webp"
+            alt="Women's hockey player at the rink entrance"
+            width={2560}
+            height={1440}
             fetchPriority="high"
             loading="eager"
             style={{
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: '65% center',
+              objectPosition: '60% center',
               display: 'block',
-              filter: 'saturate(0.12) contrast(1.1) brightness(0.55)',
+              filter: 'saturate(0.15) contrast(1.1) brightness(0.5)',
             }}
           />
         </div>
 
-        {/* Gradient overlay — bottom fade for legibility */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
             inset: 0,
             zIndex: 1,
-            background: 'linear-gradient(to top, rgba(26,26,26,0.7) 0%, rgba(26,26,26,0) 50%)',
+            background: 'linear-gradient(to top, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0) 55%)',
           }}
         />
 
-        {/* Volt floor line */}
         <div
           aria-hidden="true"
           style={{
@@ -124,7 +95,6 @@ export default function HomePage() {
           }}
         />
 
-        {/* Content — bottom-anchored, left-aligned */}
         <div
           style={{
             position: 'relative',
@@ -132,66 +102,143 @@ export default function HomePage() {
             width: '100%',
             paddingTop: 'calc(64px + 48px)',
             paddingBottom: '80px',
-            paddingLeft: '48px',
-            paddingRight: '48px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
+            paddingLeft: 'clamp(24px, 5vw, 80px)',
+            paddingRight: 'clamp(24px, 5vw, 80px)',
           }}
         >
           <span
             style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: '13px',
+              fontSize: '12px',
               fontWeight: 700,
               textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              color: '#ffffff',
+              letterSpacing: '0.1em',
+              color: '#e8ff3a',
               display: 'block',
-              marginBottom: '24px',
-              maxWidth: '60ch',
-              lineHeight: 1.5,
+              marginBottom: '20px',
             }}
           >
-            The only neck protector built for women's hockey
+            Launching Soon
           </span>
 
           <h1
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(80px, 14vw, 180px)',
+              fontSize: 'clamp(72px, 13vw, 160px)',
               fontWeight: 400,
               letterSpacing: '0.01em',
               lineHeight: 0.85,
-              color: '#e8ff3a',
+              color: '#ffffff',
               textTransform: 'uppercase',
-              margin: 0,
-              whiteSpace: 'nowrap',
-              pointerEvents: 'none',
+              margin: '0 0 32px',
             }}
           >
             PROTECT<br />HER GAME
           </h1>
+
+          <p
+            style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: 'clamp(14px, 1.6vw, 17px)',
+              color: '#d4d4d4',
+              lineHeight: 1.6,
+              maxWidth: '52ch',
+              marginBottom: '40px',
+            }}
+          >
+            Every neck protector on the market was designed for men. DefendHer is changing that — building neck protection engineered from the ground up for the female athlete.
+          </p>
+
+          {/* Signup form */}
+          {submitted ? (
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                border: '2px solid #e8ff3a',
+                borderRadius: '9999px',
+                padding: '14px 28px',
+                fontFamily: 'var(--font-sans)',
+                fontWeight: 700,
+                fontSize: '13px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                color: '#e8ff3a',
+              }}
+            >
+              You're on the list — we'll be in touch.
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSignup}
+              style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}
+              aria-label="Launch notification signup"
+            >
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                aria-label="Email address"
+                style={{
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '2px solid #3d3d3d',
+                  borderRadius: '9999px',
+                  padding: '14px 24px',
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '14px',
+                  color: '#ffffff',
+                  outline: 'none',
+                  minWidth: '240px',
+                  flex: '1 1 240px',
+                  maxWidth: '340px',
+                }}
+              />
+              <button
+                type="submit"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  background: '#e8ff3a',
+                  border: '2px solid #e8ff3a',
+                  color: '#1a1a1a',
+                  borderRadius: '9999px',
+                  padding: '14px 28px',
+                  fontFamily: 'var(--font-sans)',
+                  fontWeight: 700,
+                  fontSize: '13px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                NOTIFY ME <ArrowRight size={15} />
+              </button>
+              {error && (
+                <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: '#ff6b6b', width: '100%' }}>
+                  {error}
+                </span>
+              )}
+            </form>
+          )}
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════
-          ACT 2 — THE PITCH
-          Two columns. Editorial left + fact stack right.
-      ════════════════════════════════════════ */}
+      {/* ── THE STORY ── */}
       <section
         style={{
           borderTop: '1px solid #3d3d3d',
-          padding: 'clamp(80px, 12vw, 140px) 48px',
+          padding: 'clamp(80px, 12vw, 140px) clamp(24px, 5vw, 80px)',
           display: 'grid',
-          gridTemplateColumns: '55fr 45fr',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: 'clamp(48px, 7vw, 96px)',
-          alignItems: 'start',
+          alignItems: 'center',
         }}
-        aria-labelledby="pitch-heading"
       >
-        {/* LEFT: editorial lockup + copy + CTA */}
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div>
           <span
             style={{
               fontFamily: 'var(--font-sans)',
@@ -204,23 +251,22 @@ export default function HomePage() {
               marginBottom: '20px',
             }}
           >
-            Built different. Built for her.
+            Why we exist
           </span>
 
           <h2
-            id="pitch-heading"
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(56px, 7vw, 100px)',
+              fontSize: 'clamp(48px, 6vw, 88px)',
               fontWeight: 400,
               letterSpacing: '0.01em',
-              lineHeight: 0.85,
+              lineHeight: 0.88,
               color: '#ffffff',
               textTransform: 'uppercase',
-              margin: '0 0 40px',
+              margin: '0 0 36px',
             }}
           >
-            GEAR THAT<br />FITS YOUR<br />GAME
+            BUILT FOR<br />HER. NOT<br />ADAPTED.
           </h2>
 
           <p
@@ -228,12 +274,12 @@ export default function HomePage() {
               fontFamily: 'var(--font-sans)',
               fontSize: '16px',
               color: '#d4d4d4',
-              lineHeight: 1.6,
-              maxWidth: '65ch',
+              lineHeight: 1.7,
+              maxWidth: '60ch',
               marginBottom: '16px',
             }}
           >
-            Every neck protector on the market was designed for men. DefendHer changes that. Our neck protector is engineered from the ground up for the female athlete — contoured to the female neck and shoulder profile, so it stays in place through every check, every shift, every game.
+            The women's game is growing faster than ever. The equipment hasn't kept up. Male-designed neck protectors slip, bulk up, and restrict movement — because they were never made for a female neck and shoulder profile.
           </p>
 
           <p
@@ -241,482 +287,311 @@ export default function HomePage() {
               fontFamily: 'var(--font-sans)',
               fontSize: '16px',
               color: '#d4d4d4',
-              lineHeight: 1.6,
-              maxWidth: '65ch',
-              marginBottom: '48px',
+              lineHeight: 1.7,
+              maxWidth: '60ch',
             }}
           >
-            CE Level 1 certified. High-density foam core. Low-profile under equipment. This is protection that doesn't compromise your game — it elevates it.
+            DefendHer is building protection that was engineered from scratch for women — with the fit, the comfort, and the performance the female athlete deserves.
           </p>
+        </div>
 
-          <Link
-            to="/shop"
+        {/* Prototype photo stack */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '12px',
+          }}
+          aria-label="Prototype photos"
+        >
+          <div
+            style={{
+              aspectRatio: '3/4',
+              overflow: 'hidden',
+              borderRadius: '4px',
+              background: '#2e2e2e',
+              position: 'relative',
+            }}
+          >
+            <img
+              src="/prototype-1.jpg"
+              alt="DefendHer neck protector prototype — front view"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+            <span
+              style={{
+                position: 'absolute',
+                bottom: '8px',
+                left: '8px',
+                background: 'rgba(26,26,26,0.85)',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '10px',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                color: '#8a8a8a',
+                padding: '4px 8px',
+                borderRadius: '2px',
+              }}
+            >
+              Prototype
+            </span>
+          </div>
+          <div
+            style={{
+              aspectRatio: '3/4',
+              overflow: 'hidden',
+              borderRadius: '4px',
+              background: '#2e2e2e',
+              marginTop: '24px',
+              position: 'relative',
+            }}
+          >
+            <img
+              src="/prototype-2.jpg"
+              alt="DefendHer neck protector prototype — side view"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+            <span
+              style={{
+                position: 'absolute',
+                bottom: '8px',
+                left: '8px',
+                background: 'rgba(26,26,26,0.85)',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '10px',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                color: '#8a8a8a',
+                padding: '4px 8px',
+                borderRadius: '2px',
+              }}
+            >
+              Prototype
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHAT'S COMING ── */}
+      <section
+        style={{
+          borderTop: '1px solid #3d3d3d',
+          padding: 'clamp(80px, 12vw, 140px) clamp(24px, 5vw, 80px)',
+        }}
+      >
+        <span
+          style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '12px',
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em',
+            color: '#8a8a8a',
+            display: 'block',
+            marginBottom: '20px',
+          }}
+        >
+          What we're building
+        </span>
+
+        <h2
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(48px, 6vw, 88px)',
+            fontWeight: 400,
+            letterSpacing: '0.01em',
+            lineHeight: 0.88,
+            color: '#ffffff',
+            textTransform: 'uppercase',
+            margin: '0 0 64px',
+          }}
+        >
+          ENGINEERED<br />FOR THE<br />FEMALE ATHLETE
+        </h2>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '1px',
+            border: '1px solid #3d3d3d',
+          }}
+        >
+          {[
+            { label: 'Women-specific fit', body: 'Contoured to the female neck and shoulder profile — not a shrunken men's design.' },
+            { label: 'High-density foam core', body: 'Impact protection engineered for the forces of women's hockey, not retrofitted from men's gear.' },
+            { label: 'Low-profile design', body: 'Stays out of the way under equipment. No bulk, no shifting, no compromises on movement.' },
+            { label: 'Machine-washable liner', body: 'Built for the realities of game day — easy to clean, built to last a full season.' },
+          ].map((item) => (
+            <div
+              key={item.label}
+              style={{
+                padding: 'clamp(32px, 4vw, 48px)',
+                background: '#1a1a1a',
+                borderRight: '1px solid #3d3d3d',
+              }}
+            >
+              <div
+                style={{
+                  width: '32px',
+                  height: '3px',
+                  background: '#e8ff3a',
+                  marginBottom: '24px',
+                }}
+              />
+              <h3
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '14px',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  color: '#ffffff',
+                  marginBottom: '12px',
+                }}
+              >
+                {item.label}
+              </h3>
+              <p
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '14px',
+                  color: '#8a8a8a',
+                  lineHeight: 1.6,
+                }}
+              >
+                {item.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── BOTTOM CTA ── */}
+      <section
+        style={{
+          borderTop: '1px solid #3d3d3d',
+          padding: 'clamp(80px, 12vw, 140px) clamp(24px, 5vw, 80px)',
+          textAlign: 'center',
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(48px, 7vw, 100px)',
+            fontWeight: 400,
+            letterSpacing: '0.01em',
+            lineHeight: 0.88,
+            color: '#e8ff3a',
+            textTransform: 'uppercase',
+            margin: '0 0 32px',
+          }}
+        >
+          BE FIRST<br />TO KNOW
+        </h2>
+
+        <p
+          style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '16px',
+            color: '#d4d4d4',
+            lineHeight: 1.6,
+            maxWidth: '50ch',
+            margin: '0 auto 40px',
+          }}
+        >
+          We're in the final stages of development. Get notified the moment DefendHer is ready to ship.
+        </p>
+
+        {submitted ? (
+          <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '10px',
-              background: 'transparent',
               border: '2px solid #e8ff3a',
-              color: '#e8ff3a',
               borderRadius: '9999px',
-              padding: '16px 32px',
+              padding: '14px 28px',
               fontFamily: 'var(--font-sans)',
               fontWeight: 700,
               fontSize: '13px',
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-              width: 'fit-content',
+              color: '#e8ff3a',
             }}
           >
-            SHOP NOW
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-
-        {/* RIGHT: fact stack */}
-        <aside
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            paddingTop: 'clamp(80px, 9vw, 120px)',
-          }}
-          aria-label="Product facts"
-        >
-          {product.specs.map((spec, i) => (
-            <div
-              key={i}
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                justifyContent: 'space-between',
-                gap: '24px',
-                padding: '24px 0',
-                borderTop: '1px solid #3d3d3d',
-                ...(i === product.specs.length - 1 ? { borderBottom: '1px solid #3d3d3d' } : {}),
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '12px',
-                  color: '#8a8a8a',
-                  textTransform: 'lowercase',
-                  lineHeight: 1.5,
-                  flexShrink: 0,
-                }}
-              >
-                {spec.label}
-              </span>
-              <span
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(28px, 3.5vw, 48px)',
-                  fontWeight: 400,
-                  letterSpacing: '0.01em',
-                  lineHeight: 1,
-                  color: i === 3 ? '#e8ff3a' : '#ffffff',
-                  textTransform: 'uppercase',
-                  textAlign: 'right',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {spec.value}
-              </span>
-            </div>
-          ))}
-        </aside>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          PRODUCT SPOTLIGHT
-          Featured category pull pattern
-      ════════════════════════════════════════ */}
-      <section
-        style={{
-          background: '#2e2e2e',
-          padding: 'clamp(64px, 8vw, 100px) 48px',
-        }}
-        aria-labelledby="product-heading"
-      >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 'clamp(40px, 6vw, 80px)',
-            alignItems: 'center',
-            maxWidth: '1200px',
-            margin: '0 auto',
-          }}
-        >
-          {/* Product image */}
-          <div
-            style={{
-              position: 'relative',
-              overflow: 'hidden',
-              borderRadius: '2px',
-              aspectRatio: '4/5',
-              background: '#1a1a1a',
-            }}
+            You're on the list — we'll be in touch.
+          </div>
+        ) : (
+          <form
+            onSubmit={handleSignup}
+            style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', justifyContent: 'center' }}
+            aria-label="Launch notification signup"
           >
-            <img
-              src="/shop.webp"
-              alt="DefendHer Neck Protector"
-              width={800}
-              height={1000}
-              loading="lazy"
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              aria-label="Email address"
               style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block',
+                background: 'rgba(255,255,255,0.06)',
+                border: '2px solid #3d3d3d',
+                borderRadius: '9999px',
+                padding: '14px 24px',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '14px',
+                color: '#ffffff',
+                outline: 'none',
+                minWidth: '240px',
+                flex: '1 1 240px',
+                maxWidth: '340px',
               }}
             />
-            {product.badge && (
-              <span
-                style={{
-                  position: 'absolute',
-                  top: '16px',
-                  left: '16px',
-                  background: '#e8ff3a',
-                  color: '#1a1a1a',
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '10px',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  padding: '4px 10px',
-                  borderRadius: '2px',
-                }}
-              >
-                {product.badge}
-              </span>
-            )}
-          </div>
-
-          {/* Product info */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-            <span
+            <button
+              type="submit"
               style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                background: '#e8ff3a',
+                border: '2px solid #e8ff3a',
+                color: '#1a1a1a',
+                borderRadius: '9999px',
+                padding: '14px 28px',
                 fontFamily: 'var(--font-sans)',
-                fontSize: '11px',
                 fontWeight: 700,
+                fontSize: '13px',
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
-                color: '#8a8a8a',
-                display: 'block',
-                marginBottom: '16px',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
               }}
             >
-              Flagship Product
-            </span>
+              NOTIFY ME <ArrowRight size={15} />
+            </button>
+          </form>
+        )}
 
-            <h2
-              id="product-heading"
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(48px, 6vw, 88px)',
-                fontWeight: 400,
-                letterSpacing: '0.01em',
-                lineHeight: 0.85,
-                color: '#ffffff',
-                textTransform: 'uppercase',
-                margin: '0 0 24px',
-              }}
-            >
-              NECK<br />PROTECTOR
-            </h2>
-
-            <p
-              style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '15px',
-                color: '#d4d4d4',
-                lineHeight: 1.6,
-                marginBottom: '32px',
-                maxWidth: '50ch',
-              }}
-            >
-              {product.tagline}
-            </p>
-
-            {/* Key features */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0', marginBottom: '32px' }}>
-              {product.features.slice(0, 4).map((feat, i) => (
-                <div
-                  key={i}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '12px',
-                    padding: '12px 0',
-                    borderBottom: '1px solid #3d3d3d',
-                  }}
-                >
-                  <Shield size={14} style={{ color: '#e8ff3a', flexShrink: 0 }} />
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-sans)',
-                      fontSize: '13px',
-                      color: '#d4d4d4',
-                    }}
-                  >
-                    {feat}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Price + CTA */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
-              <span
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '48px',
-                  fontWeight: 400,
-                  letterSpacing: '0.01em',
-                  lineHeight: 1,
-                  color: '#e8ff3a',
-                }}
-              >
-                ${product.price.toFixed(2)}
-              </span>
-
-              <button
-                onClick={handleAddToCart}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  background: 'transparent',
-                  border: '2px solid #e8ff3a',
-                  color: '#e8ff3a',
-                  borderRadius: '9999px',
-                  padding: '14px 28px',
-                  fontFamily: 'var(--font-sans)',
-                  fontWeight: 700,
-                  fontSize: '13px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                ADD TO CART
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          SOCIAL PROOF — Review pull
-          3 player testimonials, staggered grid
-      ════════════════════════════════════════ */}
-      <section
-        style={{ padding: 'clamp(80px, 10vw, 120px) 48px' }}
-        aria-labelledby="reviews-heading"
-      >
-        <header
+        <p
           style={{
-            display: 'flex',
-            alignItems: 'baseline',
-            justifyContent: 'space-between',
-            gap: '24px',
-            marginBottom: '64px',
-            flexWrap: 'wrap',
-          }}
-        >
-          <h2
-            id="reviews-heading"
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(40px, 5.5vw, 72px)',
-              fontWeight: 400,
-              letterSpacing: '0.01em',
-              lineHeight: 0.85,
-              color: '#ffffff',
-              textTransform: 'uppercase',
-              margin: 0,
-            }}
-          >
-            PLAYERS<br />WHO TRUST IT
-          </h2>
-          <div style={{ display: 'flex', gap: '4px' }} aria-label="5 out of 5 stars">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={16} style={{ color: '#e8ff3a', fill: '#e8ff3a' }} />
-            ))}
-          </div>
-        </header>
-
-        {/* 12-column staggered grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(12, 1fr)',
-            rowGap: 'clamp(40px, 5vw, 72px)',
-          }}
-          role="list"
-        >
-          {/* Review 1: cols 1–7 */}
-          <article
-            role="listitem"
-            style={{
-              gridColumn: '1 / 8',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
-              paddingTop: '32px',
-              borderTop: '1px solid #3d3d3d',
-            }}
-          >
-            <p
-              style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '20px',
-                color: '#ffffff',
-                lineHeight: 1.55,
-                maxWidth: '65ch',
-              }}
-            >
-              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25em', color: '#e8ff3a', lineHeight: 0, verticalAlign: '-0.18em', marginRight: '4px' }}>"</span>
-              Finally a neck guard that actually fits. I've been playing for 12 years and every other protector I've tried sits wrong, gaps at the sides, or rides up during play. DefendHer stays exactly where it should.
-            </p>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '16px', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#d4d4d4', fontWeight: 700 }}>Sarah K.</span>
-              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a' }}>D-zone player · 12 years competitive</span>
-            </div>
-          </article>
-
-          {/* Review 2: cols 5–12 */}
-          <article
-            role="listitem"
-            style={{
-              gridColumn: '5 / 13',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
-              paddingTop: '32px',
-              borderTop: '1px solid #3d3d3d',
-            }}
-          >
-            <p
-              style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '20px',
-                color: '#ffffff',
-                lineHeight: 1.55,
-                maxWidth: '65ch',
-              }}
-            >
-              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25em', color: '#e8ff3a', lineHeight: 0, verticalAlign: '-0.18em', marginRight: '4px' }}>"</span>
-              The CE Level 1 certification was the deciding factor for me. My league requires it and most women's options are either bulky or don't meet the standard. This one does both — certified and actually comfortable.
-            </p>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '16px', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#d4d4d4', fontWeight: 700 }}>Maya T.</span>
-              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a' }}>Forward · Women's rec league</span>
-            </div>
-          </article>
-
-          {/* Review 3: cols 2–9 */}
-          <article
-            role="listitem"
-            style={{
-              gridColumn: '2 / 10',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
-              paddingTop: '32px',
-              borderTop: '1px solid #3d3d3d',
-            }}
-          >
-            <p
-              style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '20px',
-                color: '#ffffff',
-                lineHeight: 1.55,
-                maxWidth: '65ch',
-              }}
-            >
-              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25em', color: '#e8ff3a', lineHeight: 0, verticalAlign: '-0.18em', marginRight: '4px' }}>"</span>
-              I coach a women's U18 team and I've made DefendHer mandatory for our players. The fit is genuinely different — you can see it the moment they put it on. No adjusting, no complaints. Just protection.
-            </p>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '16px', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#d4d4d4', fontWeight: 700 }}>Coach Priya M.</span>
-              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a' }}>U18 Women's coach · 6 seasons</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          FINAL CTA
-      ════════════════════════════════════════ */}
-      <div
-        style={{
-          padding: '0 48px 120px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 'clamp(32px, 5vw, 64px)',
-          flexWrap: 'wrap',
-          borderTop: '1px solid #3d3d3d',
-          paddingTop: 'clamp(64px, 8vw, 100px)',
-        }}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <h2
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(48px, 7vw, 96px)',
-              fontWeight: 400,
-              letterSpacing: '0.01em',
-              lineHeight: 0.85,
-              color: '#ffffff',
-              textTransform: 'uppercase',
-              margin: 0,
-            }}
-          >
-            READY TO<br />PROTECT HER?
-          </h2>
-          <span
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '14px',
-              color: '#8a8a8a',
-              lineHeight: 1.5,
-            }}
-          >
-            Free shipping on orders over $75 · CE Level 1 certified
-          </span>
-        </div>
-
-        <Link
-          to="/shop"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '10px',
-            background: 'transparent',
-            border: '2px solid #e8ff3a',
-            color: '#e8ff3a',
-            borderRadius: '9999px',
-            padding: '16px 36px',
             fontFamily: 'var(--font-sans)',
-            fontWeight: 700,
-            fontSize: '13px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-            textDecoration: 'none',
-            whiteSpace: 'nowrap',
-            flexShrink: 0,
+            fontSize: '12px',
+            color: '#8a8a8a',
+            marginTop: '16px',
           }}
         >
-          SHOP NOW
-          <ArrowRight size={16} />
-        </Link>
-      </div>
+          Questions? Reach us at{' '}
+          <a
+            href="mailto:hello@defendhersport.net"
+            style={{ color: '#d4d4d4', textDecoration: 'none' }}
+          >
+            hello@defendhersport.net
+          </a>
+        </p>
+      </section>
     </>
   );
 }
