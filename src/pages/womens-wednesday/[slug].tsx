@@ -133,12 +133,23 @@ export default function WomensWednesdayPostPage() {
             padding: 'clamp(48px, 6vw, 80px) clamp(20px, 4vw, 48px)',
           }}
         >
-          <Link
-            to="/womens-wednesday"
-            style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#8a8a8a', textDecoration: 'none', display: 'inline-block', marginBottom: '48px' }}
-          >
-            ← All Women's Wednesday
-          </Link>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '48px', flexWrap: 'wrap' }}>
+            <Link
+              to="/womens-wednesday"
+              style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#8a8a8a', textDecoration: 'none' }}
+            >
+              ← All Women's Wednesday
+            </Link>
+            <a
+              href="https://www.instagram.com/defendhersports"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a', textDecoration: 'none' }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" /></svg>
+              @defendhersports
+            </a>
+          </div>
 
           <p
             style={{ fontFamily: 'var(--font-sans)', fontSize: '20px', color: '#ffffff', lineHeight: 1.6, marginBottom: '40px', fontWeight: 500 }}

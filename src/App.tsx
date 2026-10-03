@@ -6,7 +6,6 @@ import {
   type RouteObject,
 } from 'react-router-dom';
 
-import BrandIntro from './components/BrandIntro';
 import RootLayout from './layouts/RootLayout';
 import Spinner from './components/Spinner';
 import { routes } from './routes';
@@ -35,10 +34,5 @@ const routeTree: RouteObject[] = [
 const router = createBrowserRouter(routeTree);
 
 export default function App() {
-  return (
-    <>
-      <BrandIntro />
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }

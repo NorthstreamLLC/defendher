@@ -36,6 +36,55 @@ export default function ArticlesIndexPage() {
           </h1>
         </div>
 
+        {/* Women's Wednesday feature */}
+        <Link to="/womens-wednesday" style={{ textDecoration: 'none', display: 'block' }}>
+          <div
+            style={{
+              position: 'relative',
+              height: 'clamp(220px, 35vh, 360px)',
+              overflow: 'hidden',
+              background: '#1a1a1a',
+            }}
+          >
+            <img
+              src="/ww-hero.jpg"
+              alt="Women's Wednesday"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.5)' }}
+            />
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                padding: 'clamp(24px, 4vw, 56px) 48px',
+              }}
+            >
+              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#e8ff3a', display: 'block', marginBottom: '12px' }}>
+                Weekly Series
+              </span>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: 'clamp(48px, 8vw, 100px)',
+                  fontWeight: 400,
+                  letterSpacing: '0.01em',
+                  lineHeight: 0.88,
+                  color: '#ffffff',
+                  textTransform: 'uppercase',
+                  margin: '0 0 16px',
+                }}
+              >
+                WOMEN&apos;S<br />WEDNESDAY
+              </h2>
+              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a' }}>
+                READ ALL POSTS →
+              </span>
+            </div>
+          </div>
+        </Link>
+
         {/* Article list */}
         <div style={{ padding: '0 48px clamp(80px, 10vw, 120px)' }}>
           {ARTICLES.map((article) => (

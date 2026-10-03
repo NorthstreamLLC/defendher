@@ -26,9 +26,18 @@ export default function WomensWednesdayPage() {
           <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(48px, 8vw, 96px)', fontWeight: 400, letterSpacing: '0.01em', lineHeight: 0.85, color: '#ffffff', textTransform: 'uppercase', margin: '0 0 20px' }}>
             WOMEN'S<br />WEDNESDAY
           </h1>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '16px', color: '#8a8a8a', lineHeight: 1.6, maxWidth: '55ch', margin: 0 }}>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '16px', color: '#8a8a8a', lineHeight: 1.6, maxWidth: '55ch', margin: '0 0 24px' }}>
             Women. Sports. Stories. Impact. — Every Wednesday we spotlight the women, moments, and stories that shaped the game.
           </p>
+          <a
+            href="https://www.instagram.com/defendhersports"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a', textDecoration: 'none' }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" /></svg>
+            Follow on Instagram
+          </a>
         </div>
 
         {/* Post list */}
