@@ -162,35 +162,6 @@ export default function ArticlePage() {
                   </div>
                 ))}
             </div>
-
-            {/* Shop CTA */}
-            <div style={{ marginTop: '40px', paddingTop: '24px', borderTop: '1px solid var(--line-subtle, #3d3d3d)' }}>
-              <div style={{ fontFamily: 'var(--font-body)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--chalk-tertiary, #8a8a8a)', marginBottom: '12px' }}>
-                Shop
-              </div>
-              <Link
-                to="/shop"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  background: 'transparent',
-                  border: '2px solid var(--volt-primary, #e8ff3a)',
-                  color: 'var(--volt-primary, #e8ff3a)',
-                  borderRadius: '9999px',
-                  padding: '10px 18px',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 700,
-                  fontSize: '11px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  textDecoration: 'none',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                SHOP NOW →
-              </Link>
-            </div>
           </aside>
 
           {/* RIGHT: article content */}
@@ -385,28 +356,6 @@ export default function ArticlePage() {
                   DEFENDHER SPORT
                 </div>
               </div>
-              <Link
-                to="/shop"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  background: 'transparent',
-                  border: '2px solid var(--volt-primary, #e8ff3a)',
-                  color: 'var(--volt-primary, #e8ff3a)',
-                  borderRadius: '9999px',
-                  padding: '14px 28px',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 700,
-                  fontSize: '13px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  textDecoration: 'none',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                SHOP THE NECK PROTECTOR →
-              </Link>
             </div>
           </article>
         </div>

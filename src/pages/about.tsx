@@ -121,13 +121,15 @@ export default function AboutPage() {
         {/* CTA */}
         <div style={{ padding: 'clamp(48px, 6vw, 96px) clamp(24px, 6vw, 96px)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '24px' }}>
           <p style={{ fontFamily: 'var(--font-sans)', fontSize: '24px', fontWeight: 700, color: '#ffffff', margin: 0 }}>
-            Ready to try it?
+            Launching soon.
           </p>
           <a
-            href="/shop"
+            href="https://www.instagram.com/defendhersports"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{ display: 'inline-flex', alignItems: 'center', background: 'var(--volt-primary, #e8ff3a)', color: '#1a1a1a', borderRadius: '9999px', padding: '14px 32px', fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', textDecoration: 'none' }}
           >
-            Shop Now
+            Follow Along
           </a>
         </div>
 

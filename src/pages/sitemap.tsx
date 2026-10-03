@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { ARTICLES } from '@/lib/articles';
-import { PRODUCTS } from '@/lib/products';
+import { WOMENS_WEDNESDAY } from '@/lib/womens-wednesday';
 
 const site = 'https://defendhersport.net';
 
@@ -14,20 +14,9 @@ const SECTIONS: SitemapSection[] = [
   {
     label: 'Main',
     links: [
-      { href: '/', label: 'Home', description: "DefendHer Sports — neck protection built for women's hockey" },
+      { href: '/', label: 'Home', description: "DefendHer Sports — protective gear built for women's hockey" },
       { href: '/about', label: 'About', description: 'Our story and mission' },
       { href: '/contact', label: 'Contact', description: 'Get in touch with the team' },
-    ],
-  },
-  {
-    label: 'Shop',
-    links: [
-      { href: '/shop', label: 'All Products', description: 'Browse the full DefendHer range' },
-      ...PRODUCTS.map((p) => ({
-        href: `/product/${p.id}`,
-        label: p.name,
-        description: p.tagline,
-      })),
     ],
   },
   {
@@ -42,12 +31,10 @@ const SECTIONS: SitemapSection[] = [
     ],
   },
   {
-    label: 'Account',
+    label: 'Women's Wednesday',
     links: [
-      { href: '/account', label: 'My Account', description: 'Sign in or create an account' },
-      { href: '/account/orders', label: 'Order History', description: 'Track and manage your orders' },
-      { href: '/cart', label: 'Cart', description: 'Your shopping cart' },
-      { href: '/checkout', label: 'Checkout', description: 'Complete your order' },
+      { href: '/womens-wednesday', label: 'All Posts', description: 'Women. Sports. Stories. Impact.' },
+      ...WOMENS_WEDNESDAY.map((w) => ({ href: `/womens-wednesday/${w.slug}`, label: w.title, description: w.summary })),
     ],
   },
   {

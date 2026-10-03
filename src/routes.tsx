@@ -1,15 +1,9 @@
-import { RouteObject } from 'react-router-dom';
+import { Navigate, RouteObject } from 'react-router-dom';
 import { lazy } from 'react';
 import HomePage from './pages/index';
 import NotFoundPage from './pages/_404';
 
 const ShopPage = lazy(() => import('./pages/shop'));
-const ProductDetailPage = lazy(() => import('./pages/product/[id]'));
-const CartPage = lazy(() => import('./pages/cart'));
-const CheckoutPage = lazy(() => import('./pages/checkout'));
-const OrderConfirmationPage = lazy(() => import('./pages/order-confirmation'));
-const AccountPage = lazy(() => import('./pages/account/index'));
-const OrdersPage = lazy(() => import('./pages/account/orders'));
 const ArticlesIndexPage = lazy(() => import('./pages/articles/index'));
 const ArticlePage = lazy(() => import('./pages/articles/[slug]'));
 const SitemapPage = lazy(() => import('./pages/sitemap'));
@@ -30,27 +24,27 @@ export const routes: RouteObject[] = [
   },
   {
     path: '/product/:id',
-    element: <ProductDetailPage />,
+    element: <Navigate to="/" replace />,
   },
   {
     path: '/cart',
-    element: <CartPage />,
+    element: <Navigate to="/" replace />,
   },
   {
     path: '/checkout',
-    element: <CheckoutPage />,
+    element: <Navigate to="/" replace />,
   },
   {
     path: '/order-confirmation',
-    element: <OrderConfirmationPage />,
+    element: <Navigate to="/" replace />,
   },
   {
     path: '/account',
-    element: <AccountPage />,
+    element: <Navigate to="/" replace />,
   },
   {
     path: '/account/orders',
-    element: <OrdersPage />,
+    element: <Navigate to="/" replace />,
   },
   {
     path: '/articles',
