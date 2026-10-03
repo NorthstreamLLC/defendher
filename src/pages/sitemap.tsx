@@ -16,6 +16,7 @@ const SECTIONS: SitemapSection[] = [
     links: [
       { href: '/', label: 'Home', description: "DefendHer Sports — protective gear built for women's hockey" },
       { href: '/product', label: 'Product', description: 'The prototype. Patent pending.' },
+      { href: '/testimonials', label: 'Testimonials', description: 'Players on a year in the prototype' },
       { href: '/about', label: 'About', description: 'Our story and mission' },
       { href: '/contact', label: 'Contact', description: 'Get in touch with the team' },
     ],

@@ -124,6 +124,7 @@ export default function Footer() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {[
               { href: '/product', label: 'Product' },
+              { href: '/testimonials', label: 'Testimonials' },
               { href: '/about', label: 'About' },
               { href: '/womens-wednesday', label: "Women's Wednesday" },
               { href: '/articles', label: 'Journal' },
