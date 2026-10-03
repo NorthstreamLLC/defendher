@@ -1,7 +1,7 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { FollowStrip, HeroSocials } from '../components/Socials';
+import { HeroSocials } from '../components/Socials';
 
 const site = 'https://defendhersport.net';
 
@@ -230,8 +230,6 @@ export default function HomePage() {
 
         </div>
       </section>
-
-      <FollowStrip />
 
       {/* ── THE STORY ── */}
       <section
