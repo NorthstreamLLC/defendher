@@ -229,6 +229,27 @@ export default function HomePage() {
             </form>
           )}
 
+          <Link
+            to="/product"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              marginTop: '16px',
+              border: '2px solid #ffffff',
+              color: '#ffffff',
+              borderRadius: '9999px',
+              padding: '12px 26px',
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 700,
+              fontSize: '13px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              textDecoration: 'none',
+            }}
+          >
+            See the prototype <ArrowRight size={15} />
+          </Link>
         </div>
       </section>
 
