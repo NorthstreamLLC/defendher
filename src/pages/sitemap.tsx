@@ -31,7 +31,7 @@ const SECTIONS: SitemapSection[] = [
     ],
   },
   {
-    label: 'Women's Wednesday',
+    label: "Women's Wednesday",
     links: [
       { href: '/womens-wednesday', label: 'All Posts', description: 'Women. Sports. Stories. Impact.' },
       ...WOMENS_WEDNESDAY.map((w) => ({ href: `/womens-wednesday/${w.slug}`, label: w.title, description: w.summary })),
