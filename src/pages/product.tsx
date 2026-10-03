@@ -1,7 +1,6 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { FollowStrip } from '../components/Socials';
 
 const site = 'https://defendhersport.net';
 
@@ -167,8 +166,6 @@ export default function ProductPage() {
             </p>
           </div>
         </section>
-
-        <FollowStrip />
 
         {/* WHAT IT IS */}
         <section style={{ borderTop: '1px solid #3d3d3d', padding: 'clamp(64px, 9vw, 120px) clamp(24px, 5vw, 80px)', maxWidth: '1280px', margin: '0 auto' }}>
