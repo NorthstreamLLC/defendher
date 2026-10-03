@@ -1,20 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 
-const SEEN_KEY = 'dh_intro_seen';
-
 /** Guards against React StrictMode double-mounting the effect in development. */
 let mountedOnce = false;
 
 /**
- * Brand intro splash — plays the DefendHer logo animation full screen once per
- * browser session, then crossfades away to reveal the site.
+ * Brand loading screen — plays the DefendHer logo animation full screen while
+ * the site loads, then crossfades away. Shows every page load.
  *
- * Skipped for users who prefer reduced motion. Dismissible by click, any key,
- * or the Skip button.
- *
- * To see it again while testing: open a new incognito window, or run
- * `sessionStorage.removeItem('dh_intro_seen')` in the browser console and
- * reload.
+ * Skipped for users who prefer reduced motion.
  */
 export default function BrandIntro() {
   const [show, setShow] = useState(false);
@@ -29,27 +22,8 @@ export default function BrandIntro() {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) return;
 
-    let alreadySeen = false;
-    try {
-      alreadySeen = sessionStorage.getItem(SEEN_KEY) === '1';
-    } catch {
-      // Private mode or storage disabled — just show the intro.
-    }
-    if (alreadySeen) return;
-
     setShow(true);
   }, []);
-
-  // Mark as seen only once it has actually been displayed, so a stalled load
-  // doesn't silently burn the one showing for this session.
-  useEffect(() => {
-    if (!show) return;
-    try {
-      sessionStorage.setItem(SEEN_KEY, '1');
-    } catch {
-      /* ignore */
-    }
-  }, [show]);
 
   useEffect(() => {
     if (!show) return;
