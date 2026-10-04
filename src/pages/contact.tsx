@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from '@dr.pogodin/react-helmet';
+import PageBanner from '@/components/PageBanner';
 
 const site = 'https://defendhersport.net';
 
@@ -17,15 +18,13 @@ export default function ContactPage() {
 
       <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a' }}>
 
-        {/* Header */}
-        <div style={{ padding: 'clamp(64px, 8vw, 120px) clamp(24px, 6vw, 96px) 48px', borderBottom: '1px solid #3d3d3d' }}>
-          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#8a8a8a', display: 'block', marginBottom: '16px' }}>
-            Contact
-          </span>
-          <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(36px, 5vw, 64px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.05, letterSpacing: '-0.02em', margin: 0 }}>
-            Let's talk.
-          </h1>
-        </div>
+        <PageBanner
+          eyebrow="Contact"
+          title="Let's talk."
+          image="/ice-rink.webp"
+          objectPosition="30% center"
+          reverse
+        />
 
         {/* Info + Form */}
         <div style={{ padding: 'clamp(48px, 6vw, 96px) clamp(24px, 6vw, 96px)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '64px', maxWidth: '1100px', borderBottom: '1px solid #3d3d3d' }}>
