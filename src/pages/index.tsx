@@ -468,10 +468,10 @@ export default function HomePage() {
           }}
         >
           {[
-            { label: 'Women-specific fit', body: "Contoured to the female neck and shoulder profile — not a shrunken men’s design." },
-            { label: 'High-density foam core', body: "Impact protection engineered for the forces of women’s hockey, not retrofitted from men’s gear." },
-            { label: 'Low-profile design', body: 'Stays out of the way under equipment. No bulk, no shifting, no compromises on movement.' },
-            { label: 'Machine-washable liner', body: 'Built for the realities of game day — easy to clean, built to last a full season.' },
+            { label: 'Sports bra base layer', body: 'Support and comfort in a piece players already wear every game.' },
+            { label: 'Integrated neck guard', body: 'Neck protection built into the garment, not strapped on top of it.' },
+            { label: 'Adjustable magnetic closure', body: 'A secure fit that keeps hair from catching, with no Velcro to wear out.' },
+            { label: 'Designed for her', body: 'Made for female athletes of all ages and every body type, not adapted from men’s equipment.' },
           ].map((item) => (
             <div
               key={item.label}

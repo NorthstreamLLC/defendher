@@ -19,6 +19,83 @@ export type ArticleBlock =
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'from-a-locker-room-idea-to-a-prototype',
+    title: 'From a Locker Room Idea to a Prototype',
+    subtitle: 'How a neck guard that chafed, caught hair and wore out became a sports bra with the protection built in.',
+    date: 'October 4, 2026',
+    readTime: '4 min read',
+    category: 'Our Story',
+    heroImage: '/prototype-1.jpg',
+    heroAlt: 'DefendHer prototype worn in a hockey locker room',
+    body: [
+      {
+        type: 'paragraph',
+        text: "Most products start with something that bugs someone. For DefendHer Sports, it started in locker rooms, with a neck guard that didn\u2019t work the way it should.",
+      },
+      {
+        type: 'heading',
+        text: 'The problem she lived with',
+      },
+      {
+        type: 'paragraph',
+        text: "Ally Stymiest played four years of prep school hockey, then NCAA Division III hockey at the University of Southern Maine. Along the way she wore the neck guards that were available, and they let her down in small, constant ways. They chafed her neck. They caught in her hair, leaving her to pull out large knots or spend hours brushing them out. And over time the Velcro closures wore out and lost their effectiveness.",
+      },
+      {
+        type: 'paragraph',
+        text: "She wasn\u2019t the only one. Teammates voiced the same frustrations with base layers and protective gear that didn\u2019t fit properly or meet their needs. The result she kept seeing: girls wearing products incorrectly, or not wearing protective gear at all.",
+      },
+      {
+        type: 'heading',
+        text: 'The gap she noticed',
+      },
+      {
+        type: 'paragraph',
+        text: "Across years of locker rooms, one thing stood out. Nearly every female hockey player already wore a sports bra. Long-sleeve shirts with built-in neck guards existed, but nothing combined support, comfort and protection in one product.",
+      },
+      {
+        type: 'pullquote',
+        text: 'Nothing combined support, comfort and protection in one product.',
+        attribution: 'DefendHer Sports',
+      },
+      {
+        type: 'paragraph',
+        text: 'That gap became the idea: a sports bra with an integrated neck guard.',
+      },
+      {
+        type: 'heading',
+        text: 'From idea to first prototype',
+      },
+      {
+        type: 'paragraph',
+        text: "Ally brought the concept to Neal, her equipment manager in university. Together they built a first prototype, and both knew they had something worth pursuing.",
+      },
+      {
+        type: 'paragraph',
+        text: "They kept refining it. The biggest change was the closure: an adjustable magnetic closure that holds the secure fit athletes need without catching hair the way Velcro does.",
+      },
+      {
+        type: 'heading',
+        text: 'What players told us',
+      },
+      {
+        type: 'paragraph',
+        text: "The prototype has since been worn by players, some for almost a year. They told us it stays in place because it\u2019s one piece, that there\u2019s less material than a long-sleeve shirt with a neck guard, and that the magnets don\u2019t pull their hair. One player called it a \u201cwell thought out design for women specifically, which you don\u2019t see very often.\u201d",
+      },
+      {
+        type: 'paragraph',
+        text: "The feedback was honest, too. One player said the magnet was maybe a bit heavy. That is exactly the kind of note we want, and it has fed straight back into the design.",
+      },
+      {
+        type: 'heading',
+        text: "What\u2019s next",
+      },
+      {
+        type: 'paragraph',
+        text: "The product is patent pending and still in development. We\u2019re starting with women\u2019s hockey because that\u2019s where our experience is, and our goal is protective equipment for female athletes across all sports. You can see the prototype on our product page, and follow the journey on Instagram and TikTok.",
+      },
+    ],
+  },
+  {
     slug: 'why-girls-hockey-needs-better-gear',
     title: "Why Girls' Hockey Deserves Better Gear",
     subtitle: "Every piece of protective equipment on the market was designed for men. Here's what that costs young female players — and what we're doing about it.",
@@ -64,10 +141,6 @@ export const ARTICLES: Article[] = [
         text: "CE Level 1 is the European standard for neck protection in ice hockey. It tests for impact absorption, cut resistance, and coverage area. Many leagues — including a growing number of North American women's and girls' leagues — now require CE Level 1 certification for all players. The certification is not optional. The fit, however, has been.",
       },
       {
-        type: 'paragraph',
-        text: "DefendHer's neck protector meets CE Level 1 certification. But more importantly, it meets it while being designed from the ground up for the female athlete. The foam core is positioned for the female neck profile. The coverage area accounts for the female shoulder geometry. The fit is not an afterthought — it is the product.",
-      },
-      {
         type: 'heading',
         text: 'Starting Young',
       },
@@ -78,17 +151,6 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         text: "We built DefendHer because we believe that relationship should be defined by confidence instead. A young player who puts on gear that actually fits — that stays in place, that doesn't restrict movement, that she doesn't have to think about — plays differently. She plays without the background noise of equipment that isn't working for her.",
-      },
-      {
-        type: 'list',
-        items: [
-          'CE Level 1 certified protection — meets league requirements',
-          'Women-specific anatomical fit — designed for the female neck and shoulder profile',
-          'High-density foam core — positioned correctly for the female anatomy',
-          'Low-profile under equipment — no bulk, no restriction',
-          'Available in XS through XL — sized for girls and women',
-          'Machine washable liner — practical for daily training',
-        ],
       },
       {
         type: 'heading',
