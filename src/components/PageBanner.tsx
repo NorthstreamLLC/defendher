@@ -1,19 +1,21 @@
 interface PageBannerProps {
   eyebrow: string;
-  title: React.ReactNode;
+  title?: React.ReactNode;
   image: string;
   video?: string;
   objectPosition?: string;
   reverse?: boolean;
+  plain?: boolean;
 }
 
-export default function PageBanner({ eyebrow, title, image, video, objectPosition = 'center', reverse = false }: PageBannerProps) {
+export default function PageBanner({ eyebrow, title, image, video, objectPosition = 'center', reverse = false, plain = false }: PageBannerProps) {
+  const mediaFilter = plain ? 'none' : 'saturate(0.15) contrast(1.1) brightness(0.5)';
   return (
     <section
       aria-label={eyebrow}
       style={{
         position: 'relative',
-        height: 'clamp(300px, 46vh, 480px)',
+        height: plain ? 'clamp(220px, 34vw, 480px)' : 'clamp(300px, 46vh, 480px)',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'flex-end',
@@ -39,7 +41,7 @@ export default function PageBanner({ eyebrow, title, image, video, objectPositio
             muted
             loop
             playsInline
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition, display: 'block', filter: 'saturate(0.15) contrast(1.1) brightness(0.5)' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition, display: 'block', filter: mediaFilter }}
           />
         ) : (
           <img
@@ -47,12 +49,13 @@ export default function PageBanner({ eyebrow, title, image, video, objectPositio
             src={image}
             alt=""
             fetchPriority="high"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition, display: 'block', filter: 'saturate(0.15) contrast(1.1) brightness(0.5)' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition, display: 'block', filter: mediaFilter }}
           />
         )}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0) 65%)' }} />
+        {!plain && <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0) 65%)' }} />}
       </div>
 
+      {!plain && (
       <div style={{ position: 'relative', zIndex: 1, padding: 'clamp(24px, 4vw, 48px) clamp(24px, 6vw, 96px)', width: '100%' }}>
         <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#e8ff3a', display: 'block', marginBottom: '14px' }}>
           {eyebrow}
@@ -61,6 +64,7 @@ export default function PageBanner({ eyebrow, title, image, video, objectPositio
           {title}
         </h1>
       </div>
+      )}
     </section>
   );
 }
