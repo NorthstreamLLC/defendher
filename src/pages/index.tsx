@@ -47,8 +47,7 @@ export default function HomePage() {
         style={{
           position: 'relative',
           width: '100%',
-          height: '100svh',
-          minHeight: '640px',
+          minHeight: 'max(100svh, 640px)',
           overflow: 'hidden',
           display: 'flex',
           alignItems: 'flex-end',
@@ -102,7 +101,7 @@ export default function HomePage() {
             position: 'relative',
             zIndex: 2,
             width: '100%',
-            paddingTop: 'calc(64px + 48px)',
+            paddingTop: 'calc(var(--header-h, 80px) + clamp(40px, 7vh, 80px))',
             paddingBottom: '80px',
             paddingLeft: 'clamp(24px, 5vw, 80px)',
             paddingRight: 'clamp(24px, 5vw, 80px)',

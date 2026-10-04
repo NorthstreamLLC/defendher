@@ -89,7 +89,7 @@ export function FollowStrip() {
 
 export function HeroSocials() {
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px 20px', marginBottom: '32px' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px 20px', marginBottom: 'clamp(32px, 6vh, 56px)' }}>
       <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#d4d4d4' }}>
         Follow the journey
       </span>
