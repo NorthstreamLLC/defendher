@@ -18,8 +18,7 @@ export default function AboutPage() {
         <PageBanner
           eyebrow="About"
           title={<>Built for her.<br />From the ground up.</>}
-          image="/prototype-1.jpg"
-          objectPosition="center 30%"
+          subtitle="Protective gear designed for female athletes, starting with hockey."
         />
 
         {/* Intro */}

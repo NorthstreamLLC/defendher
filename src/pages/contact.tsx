@@ -21,9 +21,7 @@ export default function ContactPage() {
         <PageBanner
           eyebrow="Contact"
           title="Let's talk."
-          image="/prototype-2.jpg"
-          objectPosition="center 28%"
-          reverse
+          subtitle="Questions, feedback or just want to say hi."
         />
 
         {/* Info + Form */}
