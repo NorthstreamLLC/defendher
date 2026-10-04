@@ -21,8 +21,8 @@ export default function ContactPage() {
         <PageBanner
           eyebrow="Contact"
           title="Let's talk."
-          image="/ice-rink.webp"
-          objectPosition="30% center"
+          image="/prototype-2.jpg"
+          objectPosition="center 28%"
           reverse
         />
 

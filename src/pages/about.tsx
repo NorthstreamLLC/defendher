@@ -15,16 +15,15 @@ export default function AboutPage() {
 
       <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: '#1a1a1a' }}>
 
-        <PageBanner eyebrow="About DefendHer Sports" image="/brand-banner.jpg" plain />
+        <PageBanner
+          eyebrow="About"
+          title={<>Built for her.<br />From the ground up.</>}
+          image="/prototype-1.jpg"
+          objectPosition="center 30%"
+        />
 
         {/* Intro */}
         <div style={{ padding: 'clamp(48px, 6vw, 96px) clamp(24px, 6vw, 96px)', borderBottom: '1px solid #3d3d3d', maxWidth: '900px' }}>
-          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#8a8a8a', display: 'block', marginBottom: '16px' }}>
-            About
-          </span>
-          <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(36px, 5vw, 64px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.05, letterSpacing: '-0.02em', margin: '0 0 24px' }}>
-            Built for her.<br />From the ground up.
-          </h1>
           <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(16px, 2vw, 20px)', color: '#a0a0a0', lineHeight: 1.7, margin: '0 0 20px', maxWidth: '620px' }}>
             At DefendHer Sports, we believe every female athlete deserves products designed for her — not adapted from someone else. Born from firsthand experience on the ice, our brand is committed to solving the everyday challenges women face in sport through thoughtful innovation, comfort, and performance.
           </p>
