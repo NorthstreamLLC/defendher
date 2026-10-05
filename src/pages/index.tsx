@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { HeroSocials } from '../components/Socials';
+import FeatureCards from '../components/FeatureCards';
 
 const site = 'https://defendhersport.net';
 
@@ -458,62 +459,14 @@ export default function HomePage() {
           ENGINEERED<br />FOR THE<br />FEMALE ATHLETE
         </h2>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '1px',
-            border: '1px solid #3d3d3d',
-          }}
-        >
-          {[
-            { label: 'Sports bra base layer', body: 'Support and comfort in a piece players already wear every game.' },
-            { label: 'Integrated neck guard', body: 'Neck protection built into the garment, not strapped on top of it.' },
-            { label: 'Adjustable magnetic closure', body: 'A secure fit that keeps hair from catching, with no Velcro to wear out.' },
-            { label: 'Designed for her', body: 'Made for female athletes of all ages and every body type, not adapted from men’s equipment.' },
-          ].map((item) => (
-            <div
-              key={item.label}
-              style={{
-                padding: 'clamp(32px, 4vw, 48px)',
-                background: '#1a1a1a',
-                borderRight: '1px solid #3d3d3d',
-              }}
-            >
-              <div
-                style={{
-                  width: '32px',
-                  height: '3px',
-                  background: '#e8ff3a',
-                  marginBottom: '24px',
-                }}
-              />
-              <h3
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '14px',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  color: '#ffffff',
-                  marginBottom: '12px',
-                }}
-              >
-                {item.label}
-              </h3>
-              <p
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '14px',
-                  color: '#8a8a8a',
-                  lineHeight: 1.6,
-                }}
-              >
-                {item.body}
-              </p>
-            </div>
-          ))}
-        </div>
+        <FeatureCards
+          items={[
+            { title: 'Sports bra base layer', text: 'Support and comfort in a piece players already wear every game.' },
+            { title: 'Integrated neck guard', text: 'Neck protection built into the garment, not strapped on top of it.' },
+            { title: 'Adjustable magnetic closure', text: 'A secure fit that keeps hair from catching, with no Velcro to wear out.' },
+            { title: 'Designed for her', text: 'Made for female athletes of all ages and every body type, not adapted from men\u2019s equipment.' },
+          ]}
+        />
       </section>
 
       {/* ── BOTTOM CTA ── */}

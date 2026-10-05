@@ -1,6 +1,7 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import FeatureCards from '../components/FeatureCards';
 
 const site = 'https://defendhersport.net';
 
@@ -173,17 +174,7 @@ export default function ProductPage() {
         <section style={{ borderTop: '1px solid #3d3d3d', padding: 'clamp(64px, 9vw, 120px) clamp(24px, 5vw, 80px)', maxWidth: '1280px', margin: '0 auto' }}>
           <span style={label}>The idea</span>
           <h2 style={h2}>ONE PIECE.<br />THREE JOBS.</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', border: '1px solid #3d3d3d', background: '#3d3d3d' }}>
-            {points.map((p) => (
-              <div key={p.title} style={{ background: '#1a1a1a', padding: 'clamp(28px, 3vw, 40px)' }}>
-                <div style={{ width: '32px', height: '3px', background: '#e8ff3a', marginBottom: '20px' }} />
-                <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#ffffff', margin: '0 0 12px' }}>
-                  {p.title}
-                </h3>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: '#8a8a8a', lineHeight: 1.6, margin: 0 }}>{p.text}</p>
-              </div>
-            ))}
-          </div>
+          <FeatureCards items={points} />
         </section>
 
         {/* CLOSURE */}
