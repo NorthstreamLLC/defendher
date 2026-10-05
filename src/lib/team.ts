@@ -52,7 +52,7 @@ export const TEAM: TeamMember[] = [
     lead: 'She never planned on becoming a goalie.',
     bio: [
       'Carissa grew up with hockey in the backyard rink her dad, Neal, built. When her team’s goalie was sick one game, she ended up in the net, and they won. She played soccer, basketball, lacrosse and hockey through college, including hockey at the University of Southern Maine.',
-      'At 5’3” and barely 120 pounds, she spent years making oversized goalie gear work, custom ordering her catcher and blocker to fit her hands. Unless gear was required, she skipped it, even the neck guard. She later realized she wasn’t alone: female athletes in every sport have adapted to equipment designed for someone else.',
+      'At 5’3” and barely 120 pounds, she spent years making oversized goalie gear work, custom ordering her catcher and blocker to fit her hands. Unless gear was required, she skipped it, even the neck guard. (She says she would use this one now.) She later realized she wasn’t alone: female athletes in every sport have adapted to equipment designed for someone else.',
       'As an operating room nurse and then a business owner, she learned how to build something from the ground up and listen to what people actually need. She believes women shouldn’t have to choose between feeling protected and feeling comfortable.',
     ],
   },
