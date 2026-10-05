@@ -85,6 +85,19 @@ export default function HomePage() {
         />
 
         <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '3px',
+            background: '#e8ff3a',
+            zIndex: 4,
+          }}
+        />
+
+        <div
           className="dh-roll-in"
           style={{
             position: 'relative',
