@@ -4,6 +4,7 @@ import HomePage from './pages/index';
 import NotFoundPage from './pages/_404';
 import ProductPage from './pages/product';
 import TestimonialsPage from './pages/testimonials';
+import TeamPage from './pages/team';
 
 const ShopPage = lazy(() => import('./pages/shop'));
 const ArticlesIndexPage = lazy(() => import('./pages/articles/index'));
@@ -23,6 +24,10 @@ export const routes: RouteObject[] = [
   {
     path: '/shop',
     element: <ShopPage />,
+  },
+  {
+    path: '/team',
+    element: <TeamPage />,
   },
   {
     path: '/testimonials',

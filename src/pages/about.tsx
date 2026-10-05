@@ -1,5 +1,7 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
+import { Link } from 'react-router-dom';
 import { TESTIMONIALS } from '@/lib/testimonials';
+import { TEAM } from '@/lib/team';
 import PageBanner from '@/components/PageBanner';
 
 const site = 'https://defendhersport.net';
@@ -65,71 +67,42 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Story */}
-        <div style={{ padding: 'clamp(48px, 6vw, 96px) clamp(24px, 6vw, 96px)', borderBottom: '1px solid #3d3d3d', maxWidth: '1100px' }}>
-          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--volt-primary, #e8ff3a)', margin: '0 0 40px' }}>
+        {/* Meet the team */}
+        <div style={{ padding: 'clamp(40px, 5vw, 72px) clamp(24px, 6vw, 96px)', borderBottom: '1px solid #3d3d3d', maxWidth: '1200px' }}>
+          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--volt-primary, #e8ff3a)', display: 'block', marginBottom: '20px' }}>
             Our Story
+          </span>
+          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.2, letterSpacing: '-0.01em', margin: '0 0 16px', maxWidth: '24ch' }}>
+            Three people who couldn&rsquo;t leave a problem alone.
           </h2>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'clamp(32px, 5vw, 64px)', alignItems: 'start' }}>
-
-            {/* Photo */}
-            <div style={{ maxWidth: '380px' }}>
-              <div
-                style={{
-                  aspectRatio: '4/5',
-                  background: '#2e2e2e',
-                  border: '1px solid #3d3d3d',
-                  borderRadius: '4px',
-                  overflow: 'hidden',
-                }}
-              >
-                <img
-                  src="/ally.jpg"
-                  alt="Ally Stymiest, co-founder of DefendHer Sports, in her University of Southern Maine jersey"
-                  width={900}
-                  height={1124}
-                  loading="lazy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-              </div>
-            </div>
-
-            {/* Bio */}
-            <div>
-              <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, letterSpacing: '-0.01em', margin: '0 0 8px' }}>
-                Ally Stymiest
-              </h3>
-              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--volt-primary, #e8ff3a)', margin: '0 0 28px' }}>
-                Co-Founder
-              </p>
-
-              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '17px', color: '#d4d4d4', lineHeight: 1.8, margin: '0 0 20px' }}>
-                Ally Stymiest is a professional hockey player and co-founder of DefendHer Sports. She played four years of prep school hockey before competing at the NCAA Division III level at the University of Southern Maine, where she earned a degree in Leadership and Organizational Studies. After graduating, Ally signed her first professional hockey contract.
-              </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '17px', color: '#d4d4d4', lineHeight: 1.8, margin: '0 0 20px' }}>
-                Throughout her athletic career, Ally recognized a consistent gap in the women&rsquo;s sports market. Few brands were designing products specifically for female athletes, and she regularly heard teammates express frustration with base layers and protective gear that didn&rsquo;t fit properly or meet their needs. The result: girls wearing products incorrectly, or not wearing protective gear at all.
-              </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '17px', color: '#d4d4d4', lineHeight: 1.8, margin: '0 0 20px' }}>
-                Growing up, Ally struggled with traditional neck guards. They chafed her neck and caught in her hair, leaving her to pull out large knots or spend hours brushing them out, and over time the Velcro closures wore out and lost their effectiveness. Across years of locker rooms, she noticed nearly every female hockey player already wore a sports bra. Long-sleeve shirts with built-in neck guards existed, but nothing combined support, comfort, and protection in one product. That gap inspired the idea: a sports bra with an integrated neck guard.
-              </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '17px', color: '#d4d4d4', lineHeight: 1.8, margin: 0 }}>
-                After bringing the concept to Neal &mdash; her equipment manager in university &mdash; and building a first prototype, both knew they had something worth pursuing. Together they refined the design with an adjustable magnetic closure that keeps hair from catching while holding the secure fit athletes need. Today, Ally&rsquo;s vision for DefendHer Sports is to create innovative base layers and protective gear that prioritize women, celebrate every body type, and ensure female athletes of all ages have products designed specifically for them &mdash; not adapted from men&rsquo;s equipment.
-              </p>
-            </div>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '17px', color: '#d4d4d4', lineHeight: 1.8, margin: '0 0 32px', maxWidth: '62ch' }}>
+            DefendHer began in a college pro shop, when a player, an equipment manager and a goalie turned a frustration with neck guards into a first prototype built from scraps.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1px', border: '1px solid #3d3d3d', background: '#3d3d3d', marginBottom: '28px' }}>
+            {TEAM.map((m) => (
+              <Link key={m.slug} to={`/team#${m.slug}`} style={{ background: '#1a1a1a', padding: 'clamp(24px, 3vw, 32px)', textDecoration: 'none', display: 'block' }}>
+                <div style={{ width: '32px', height: '3px', background: '#e8ff3a', marginBottom: '18px' }} />
+                <div style={{ fontFamily: 'var(--font-sans)', fontSize: '18px', fontWeight: 800, color: '#ffffff', marginBottom: '4px' }}>{m.name}</div>
+                <div style={{ fontFamily: 'var(--font-sans)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#e8ff3a', marginBottom: '12px' }}>{m.role}</div>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '15px', color: '#b0b0b0', lineHeight: 1.6, margin: 0 }}>{m.blurb}</p>
+              </Link>
+            ))}
           </div>
+          <Link to="/team" style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a', textDecoration: 'none' }}>
+            Meet the team &rarr;
+          </Link>
         </div>
 
         {/* PLAYERS */}
-        <div style={{ borderTop: '1px solid #3d3d3d', padding: 'clamp(48px, 6vw, 96px) clamp(24px, 6vw, 96px)' }}>
-          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#8a8a8a', display: 'block', marginBottom: '32px' }}>
+        <div style={{ padding: 'clamp(40px, 5vw, 72px) clamp(24px, 6vw, 96px)' }}>
+          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#8a8a8a', display: 'block', marginBottom: '28px' }}>
             Tested by players
           </span>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'clamp(32px, 4vw, 56px)', marginBottom: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 'clamp(28px, 3vw, 48px)', marginBottom: '32px' }}>
             {TESTIMONIALS.map((t) => (
-              <figure key={t.name ?? t.team} style={{ margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <figure key={t.name ?? t.team} style={{ margin: 0, display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 <div aria-hidden="true" style={{ width: '32px', height: '3px', background: '#e8ff3a' }} />
-                <blockquote style={{ margin: 0, fontFamily: 'var(--font-sans)', fontSize: 'clamp(18px, 2vw, 22px)', fontWeight: 600, color: '#ffffff', lineHeight: 1.4 }}>
+                <blockquote style={{ margin: 0, fontFamily: 'var(--font-sans)', fontSize: 'clamp(17px, 1.7vw, 20px)', fontWeight: 600, color: '#ffffff', lineHeight: 1.4 }}>
                   &ldquo;{t.highlight}&rdquo;
                 </blockquote>
                 <figcaption style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: '#8a8a8a' }}>
@@ -138,27 +111,19 @@ export default function AboutPage() {
               </figure>
             ))}
           </div>
-          <a
-            href="/testimonials"
-            style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a', textDecoration: 'none' }}
-          >
-            Read what players say &rarr;
-          </a>
-        </div>
-
-        {/* CTA */}
-        <div style={{ padding: 'clamp(48px, 6vw, 96px) clamp(24px, 6vw, 96px)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '24px' }}>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '24px', fontWeight: 700, color: '#ffffff', margin: 0 }}>
-            Launching soon.
-          </p>
-          <a
-            href="https://www.instagram.com/defendhersports"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: 'inline-flex', alignItems: 'center', background: 'var(--volt-primary, #e8ff3a)', color: '#1a1a1a', borderRadius: '9999px', padding: '14px 32px', fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', textDecoration: 'none' }}
-          >
-            Follow Along
-          </a>
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px 28px' }}>
+            <Link to="/testimonials" style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a', textDecoration: 'none' }}>
+              Read what players say &rarr;
+            </Link>
+            <a
+              href="https://www.instagram.com/defendhersports"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', background: 'var(--volt-primary, #e8ff3a)', color: '#1a1a1a', borderRadius: '9999px', padding: '12px 26px', fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', textDecoration: 'none' }}
+            >
+              Follow along
+            </a>
+          </div>
         </div>
 
       </div>

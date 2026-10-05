@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { ARTICLES } from '@/lib/articles';
+import PageBanner from '@/components/PageBanner';
 
 const site = 'https://defendhersport.net';
 
@@ -26,15 +27,11 @@ export default function ArticlesIndexPage() {
       </Helmet>
 
       <div style={{ paddingTop: 'var(--header-h)', minHeight: '100vh', background: 'var(--concrete-900, #1a1a1a)' }}>
-        {/* Page header */}
-        <div style={{ padding: 'clamp(28px, 4vw, 44px) clamp(20px, 4vw, 48px) 24px' }}>
-          <span style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--chalk-tertiary, #8a8a8a)', display: 'block', marginBottom: '8px' }}>
-            DefendHer Journal
-          </span>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(44px, 6vw, 72px)', fontWeight: 400, letterSpacing: '0.01em', lineHeight: 0.85, color: 'var(--chalk-primary, #ffffff)', textTransform: 'uppercase', margin: 0 }}>
-            JOURNAL
-          </h1>
-        </div>
+        <PageBanner
+          eyebrow="DefendHer Journal"
+          title="The Journal"
+          subtitle="Our story, what we're learning, and the weekly Women's Wednesday series."
+        />
 
         {/* Women's Wednesday banner */}
         <div style={{ background: '#111111', borderTop: '1px solid var(--line-subtle, #3d3d3d)', borderBottom: '1px solid var(--line-subtle, #3d3d3d)' }}>
