@@ -6,11 +6,18 @@ import FeatureCards from '../components/FeatureCards';
 const site = 'https://defendhersport.net';
 
 // To add a photo: save it in /public, then add a line here.
-const PHOTOS = [
+const PHOTOS: { src: string; alt: string; light?: boolean; fit?: 'cover' | 'contain'; note?: string }[] = [
   { src: '/prototype-1.jpg', alt: 'DefendHer prototype, front view, worn in the locker room' },
   { src: '/prototype-2.jpg', alt: 'DefendHer prototype, full view with hockey gear' },
   { src: '/prototype-3.webp', alt: 'DefendHer prototype, front flat lay with high neck' },
   { src: '/prototype-4.png', alt: 'DefendHer prototype, back flat lay with racerback and mesh panels' },
+  {
+    src: '/prototype-magnet-upright.jpg',
+    alt: 'Design drawing of the DefendHer garment from the front, side and back. Callouts at the back of the neck mark where the material overlaps and where the neck guard fastens with a magnet.',
+    light: true,
+    fit: 'contain',
+    note: 'Design drawing, front, side and back. The magnetic closure fastens at the back of the neck, with the material overlapping at the join. It isn\u2019t visible in the prototype photos. Early concept; final design may change before launch.',
+  },
 ];
 
 const WATERMARK =
@@ -95,7 +102,7 @@ export default function ProductPage() {
   const points = [
     { title: 'Sports bra base layer', text: 'Support and comfort in a piece you already wear every game.' },
     { title: 'Integrated neck guard', text: 'Neck protection built into the garment, not strapped on top of it.' },
-    { title: 'Adjustable magnetic closure', text: 'A secure fit that keeps hair from catching, with no Velcro to wear out.' },
+    { title: 'Adjustable magnetic closure', text: 'Fastens at the back of the neck with the material overlapping at the join. A secure fit that keeps hair from catching, with no Velcro to wear out.' },
     { title: 'Designed for her', text: 'Made for female athletes of all ages and every body type, not adapted from men’s equipment.' },
   ];
 
@@ -149,7 +156,7 @@ export default function ProductPage() {
             </div>
           </div>
           <div style={{ maxWidth: '520px', width: '100%', justifySelf: 'center' }}>
-            <PatentPhoto src={PHOTOS[active].src} alt={PHOTOS[active].alt} ratio="4/5" eager />
+            <PatentPhoto src={PHOTOS[active].src} alt={PHOTOS[active].alt} ratio="4/5" eager light={PHOTOS[active].light} fit={PHOTOS[active].fit} />
             <div style={{ display: 'grid', gridTemplateColumns: `repeat(${PHOTOS.length}, 1fr)`, gap: '8px', marginTop: '8px' }}>
               {PHOTOS.map((p, i) => (
                 <button
@@ -158,14 +165,14 @@ export default function ProductPage() {
                   onClick={() => setActive(i)}
                   aria-label={`Show photo ${i + 1} of ${PHOTOS.length}`}
                   aria-current={i === active}
-                  style={{ padding: 0, background: '#2e2e2e', border: i === active ? '2px solid #e8ff3a' : '2px solid transparent', borderRadius: '4px', overflow: 'hidden', cursor: 'pointer', aspectRatio: '1/1', opacity: i === active ? 1 : 0.65 }}
+                  style={{ padding: 0, background: p.light ? '#ffffff' : '#2e2e2e', border: i === active ? '2px solid #e8ff3a' : '2px solid transparent', borderRadius: '4px', overflow: 'hidden', cursor: 'pointer', aspectRatio: '1/1', opacity: i === active ? 1 : 0.65 }}
                 >
-                  <img src={p.src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  <img src={p.src} alt="" style={{ width: '100%', height: '100%', objectFit: p.fit ?? 'cover', display: 'block' }} />
                 </button>
               ))}
             </div>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a', margin: '12px 0 0' }}>
-              {PHOTOS.length} prototype photos. Early prototype shown; final design and materials may change before launch.
+              {PHOTOS[active].note ?? `Photo ${active + 1} of ${PHOTOS.length}. Early prototype shown; final design and materials may change before launch.`}
             </p>
           </div>
         </section>
@@ -175,31 +182,6 @@ export default function ProductPage() {
           <span style={label}>The idea</span>
           <h2 style={h2}>ONE PIECE.<br />THREE JOBS.</h2>
           <FeatureCards items={points} />
-        </section>
-
-        {/* CLOSURE */}
-        <section id="closure" style={{ borderTop: '1px solid #3d3d3d', padding: 'clamp(64px, 9vw, 120px) clamp(24px, 5vw, 80px)', maxWidth: '1280px', margin: '0 auto' }}>
-          <span style={label}>The closure</span>
-          <h2 style={h2}>WHERE THE<br />MAGNET GOES</h2>
-          <p style={{ ...body, marginBottom: '32px' }}>
-            The magnetic closure isn&rsquo;t visible in the prototype photos above, so here&rsquo;s the drawing. The neck guard fastens at the back of the neck with a magnet instead of Velcro, and the material overlaps where it closes.
-          </p>
-          <PatentPhoto src="/prototype-magnet-upright.jpg" alt="Design drawing of the DefendHer garment from the front, side and back. Callouts at the back of the neck mark where the material overlaps and where the neck guard fastens with a magnet." ratio="4/3" light fit="contain" />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1px', border: '1px solid #3d3d3d', background: '#3d3d3d', marginTop: '16px' }}>
-            {[
-              { title: 'Magnetic fastening', text: 'The neck guard closes at the back with an adjustable magnet. Players told us it keeps hair from catching.' },
-              { title: 'Overlapping material', text: 'The fabric overlaps at the closure, so the join stays covered.' },
-            ].map((c) => (
-              <div key={c.title} style={{ background: '#1a1a1a', padding: 'clamp(24px, 3vw, 32px)' }}>
-                <div style={{ width: '32px', height: '3px', background: '#e8ff3a', marginBottom: '16px' }} />
-                <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#ffffff', margin: '0 0 10px' }}>{c.title}</h3>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: '#8a8a8a', lineHeight: 1.6, margin: 0 }}>{c.text}</p>
-              </div>
-            ))}
-          </div>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a', marginTop: '16px' }}>
-            Design drawing, shown front, side and back. Early concept; final design may change before launch.
-          </p>
         </section>
 
         {/* STORY */}
