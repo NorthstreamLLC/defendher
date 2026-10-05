@@ -4,6 +4,8 @@ export interface TeamMember {
   role: string;
   photo?: string;
   alt?: string;
+  objectPosition?: string;
+  caption?: string;
   blurb: string;
   lead: string;
   bio: string[];
@@ -15,8 +17,9 @@ export const TEAM: TeamMember[] = [
     slug: 'ally',
     name: 'Ally Stymiest',
     role: 'Co-Founder',
-    photo: '/ally.jpg',
-    alt: 'Ally Stymiest, co-founder of DefendHer Sports, in her University of Southern Maine jersey',
+    photo: '/ally-use.jpeg',
+    alt: 'Ally Stymiest celebrating in her University of Southern Maine jersey',
+    objectPosition: 'center 30%',
     blurb: 'Professional hockey player who asked why a neck guard and a sports bra couldn’t be one piece.',
     lead: 'A sports bra with protection built into it. Something women would actually want to wear.',
     bio: [
@@ -29,6 +32,10 @@ export const TEAM: TeamMember[] = [
     slug: 'neal',
     name: 'Neal',
     role: 'Inventor',
+    photo: '/ally-x-neal.jpg',
+    alt: 'Neal, right, standing with Ally on the ice at a University of Southern Maine game',
+    objectPosition: 'center 22%',
+    caption: 'Neal with Ally at a University of Southern Maine game.',
     blurb: 'Equipment manager and skate sharpener who built the first prototype with Ally.',
     lead: 'Someone needed help, so he stepped in.',
     bio: [

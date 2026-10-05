@@ -36,7 +36,7 @@ export default function TeamPage() {
         <meta property="og:description" content="A player, an equipment manager and a goalie who couldn't leave a problem alone." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${site}/team`} />
-        <meta property="og:image" content={`${site}/ally.jpg`} />
+        <meta property="og:image" content={`${site}/ally-use.jpeg`} />
       </Helmet>
 
       <div style={{ paddingTop: 'var(--header-h)', background: '#1a1a1a' }}>
@@ -65,13 +65,16 @@ export default function TeamPage() {
               <div style={{ order: i % 2 === 0 ? 0 : 1, maxWidth: '420px', width: '100%' }}>
                 <div style={{ aspectRatio: '4/5', borderRadius: '4px 4px 4px 96px', overflow: 'hidden', background: '#2e2e2e', border: '1px solid #3d3d3d', position: 'relative' }}>
                   {m.photo ? (
-                    <img src={m.photo} alt={m.alt ?? m.name} loading={i === 0 ? 'eager' : 'lazy'} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    <img src={m.photo} alt={m.alt ?? m.name} loading={i === 0 ? 'eager' : 'lazy'} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: m.objectPosition ?? 'center', display: 'block' }} />
                   ) : (
                     <div aria-hidden="true" style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(160deg, #262b12 0%, #1a1a1a 70%)' }}>
                       <span style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(120px, 14vw, 200px)', color: '#e8ff3a', lineHeight: 1 }}>{m.name.charAt(0)}</span>
                     </div>
                   )}
                 </div>
+                {m.caption && (
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a', margin: '12px 0 0' }}>{m.caption}</p>
+                )}
               </div>
 
               <div>
