@@ -5,6 +5,7 @@ import { ScrollRestoration } from 'react-router-dom';
 import Footer from '@/layouts/parts/Footer';
 import Header from '@/layouts/parts/Header';
 import Website from '@/layouts/Website';
+import ScrollMotion from '@/components/ScrollMotion';
 
 /**
  * Root layout component that wraps all pages with consistent header and footer.
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="description" content="App Template" />
       </Helmet>
       <ScrollRestoration />
+      <ScrollMotion />
       <Header />
       {children}
       <Footer />

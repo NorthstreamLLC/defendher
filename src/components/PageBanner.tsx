@@ -19,7 +19,6 @@ export default function PageBanner({ eyebrow, title, subtitle, image, video, obj
         display: 'flex',
         alignItems: 'flex-end',
         background: '#141414',
-        borderBottom: '3px solid #e8ff3a',
       }}
     >
       <style>{`

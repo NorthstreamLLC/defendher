@@ -98,6 +98,7 @@ export default function HomePage() {
         />
 
         <div
+          className="dh-roll-in"
           style={{
             position: 'relative',
             zIndex: 2,
