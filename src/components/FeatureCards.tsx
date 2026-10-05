@@ -36,13 +36,13 @@ export default function FeatureCards({ items }: FeatureCardsProps) {
       <style>{`
         .dh-fc-card { background: #1a1a1a; padding: clamp(32px, 3.5vw, 48px); opacity: 0; transform: translateY(28px); transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1), background 250ms ease; }
         .dh-fc.in .dh-fc-card { opacity: 1; transform: translateY(0); }
-        .dh-fc-bar { display: block; height: 3px; width: 0; background: #e8ff3a; margin-bottom: 24px; transition: width 800ms cubic-bezier(0.22, 1, 0.36, 1) 350ms; }
-        .dh-fc.in .dh-fc-bar { width: 40px; }
+        .dh-fc-bar { display: block; height: 3px; width: 88px; background: #e8ff3a; margin-bottom: 24px; transform: scaleX(0); transform-origin: left center; transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1) 350ms; }
+        .dh-fc.in .dh-fc-bar { transform: scaleX(0.4545); }
         .dh-fc-card:hover { background: #222222; }
-        .dh-fc.in .dh-fc-card:hover .dh-fc-bar { width: 88px; transition-delay: 0ms; transition-duration: 350ms; }
+        .dh-fc.in .dh-fc-card:hover .dh-fc-bar { transform: scaleX(1); transition-delay: 0ms; transition-duration: 350ms; }
         @media (prefers-reduced-motion: reduce) {
           .dh-fc-card { opacity: 1; transform: none; transition: none; }
-          .dh-fc-bar { width: 40px; transition: none; }
+          .dh-fc-bar { transform: scaleX(0.4545); transition: none; }
         }
       `}</style>
       {items.map((item, i) => (
