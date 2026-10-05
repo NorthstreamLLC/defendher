@@ -15,6 +15,8 @@ const PHOTOS = [
 const WATERMARK =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='140'%3E%3Ctext x='40' y='80' transform='rotate(-25 150 70)' font-family='Arial,sans-serif' font-weight='700' font-size='15' letter-spacing='3' fill='white' fill-opacity='0.3'%3EPATENT PENDING%3C/text%3E%3C/svg%3E\")";
 
+const WATERMARK_DARK = WATERMARK.replace("fill='white' fill-opacity='0.3'", "fill='black' fill-opacity='0.14'");
+
 const label: React.CSSProperties = {
   fontFamily: 'var(--font-sans)',
   fontSize: '12px',
@@ -46,11 +48,11 @@ const body: React.CSSProperties = {
   margin: '0 0 16px',
 };
 
-function PatentPhoto({ src, alt, ratio = '3/4', eager = false }: { src: string; alt: string; ratio?: string; eager?: boolean }) {
+function PatentPhoto({ src, alt, ratio = '3/4', eager = false, light = false, fit = 'cover' }: { src: string; alt: string; ratio?: string; eager?: boolean; light?: boolean; fit?: 'cover' | 'contain' }) {
   return (
-    <div style={{ position: 'relative', aspectRatio: ratio, overflow: 'hidden', borderRadius: '4px', background: '#2e2e2e' }}>
-      <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-      <div aria-hidden="true" style={{ position: 'absolute', inset: 0, backgroundImage: WATERMARK, backgroundSize: '300px 140px' }} />
+    <div style={{ position: 'relative', aspectRatio: ratio, overflow: 'hidden', borderRadius: '4px', background: light ? '#ffffff' : '#2e2e2e' }}>
+      <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} style={{ width: '100%', height: '100%', objectFit: fit, display: 'block' }} />
+      <div aria-hidden="true" style={{ position: 'absolute', inset: 0, backgroundImage: light ? WATERMARK_DARK : WATERMARK, backgroundSize: '300px 140px' }} />
       <span
         style={{
           position: 'absolute',
@@ -182,6 +184,31 @@ export default function ProductPage() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* CLOSURE */}
+        <section id="closure" style={{ borderTop: '1px solid #3d3d3d', padding: 'clamp(64px, 9vw, 120px) clamp(24px, 5vw, 80px)', maxWidth: '1280px', margin: '0 auto' }}>
+          <span style={label}>The closure</span>
+          <h2 style={h2}>WHERE THE<br />MAGNET GOES</h2>
+          <p style={{ ...body, marginBottom: '32px' }}>
+            The magnetic closure isn&rsquo;t visible in the prototype photos above, so here&rsquo;s the drawing. The neck guard fastens at the back of the neck with a magnet instead of Velcro, and the material overlaps where it closes.
+          </p>
+          <PatentPhoto src="/prototype-magnet-upright.jpg" alt="Design drawing of the DefendHer garment from the front, side and back. Callouts at the back of the neck mark where the material overlaps and where the neck guard fastens with a magnet." ratio="4/3" light fit="contain" />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1px', border: '1px solid #3d3d3d', background: '#3d3d3d', marginTop: '16px' }}>
+            {[
+              { title: 'Magnetic fastening', text: 'The neck guard closes at the back with an adjustable magnet. Players told us it keeps hair from catching.' },
+              { title: 'Overlapping material', text: 'The fabric overlaps at the closure, so the join stays covered.' },
+            ].map((c) => (
+              <div key={c.title} style={{ background: '#1a1a1a', padding: 'clamp(24px, 3vw, 32px)' }}>
+                <div style={{ width: '32px', height: '3px', background: '#e8ff3a', marginBottom: '16px' }} />
+                <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#ffffff', margin: '0 0 10px' }}>{c.title}</h3>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: '#8a8a8a', lineHeight: 1.6, margin: 0 }}>{c.text}</p>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a', marginTop: '16px' }}>
+            Design drawing, shown front, side and back. Early concept; final design may change before launch.
+          </p>
         </section>
 
         {/* STORY */}

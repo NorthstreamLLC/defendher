@@ -36,6 +36,18 @@ export const TESTIMONIALS: Testimonial[] = [
     ],
   },
   {
+    name: 'Eva Hlynsdottir',
+    team: 'Icelandic National Team / NDHL',
+    photo: '/testimonial-eva.jpg',
+    alt: 'Eva Hlynsdottir in her white Iceland jersey, waiting for a face-off',
+    highlight: 'My favourite thing was that I barely felt like I was wearing anything.',
+    quote: [
+      'Overall, I was really impressed with the prototype because it was both comfortable and looked really good. My favourite thing was that I barely felt like I was wearing anything. I also liked that it combines a bra and a neck guard, making it quicker and easier to use one product instead of two and it wasn\u2019t too thick.',
+      'The prototype was very comfortable, and the neck guard stayed in place really well. The magnet was much more comfortable than Velcro because Velcro can stick to your hair and you can sometimes feel it.',
+      'I think this product is unique because it is specifically designed for women and their needs unlike other neck guards that are probably made for men. Right now, I use a bib neck guard. The Velcro gets worn out, and I have had to replace it a couple of times, I can also never fasten it in exactly the same position, while a magnet gives the same fit every time.',
+    ],
+  },
+  {
     team: 'SDHL / National Team Player',
     label: 'Design feedback',
     highlight: 'The prototype was impressive. Well thought out design for women specifically, which you don’t see very often.',
