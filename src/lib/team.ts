@@ -16,7 +16,7 @@ export const TEAM: TeamMember[] = [
   {
     slug: 'ally',
     name: 'Ally Stymiest',
-    role: 'Co-Founder',
+    role: 'Co-Founder / Inventor',
     photo: '/ally-use.jpeg',
     alt: 'Ally Stymiest celebrating in her University of Southern Maine jersey',
     objectPosition: 'center 30%',
@@ -31,7 +31,7 @@ export const TEAM: TeamMember[] = [
   {
     slug: 'neal',
     name: 'Neal',
-    role: 'Inventor',
+    role: 'Co-Founder / Inventor',
     photo: '/ally-x-neal.jpg',
     alt: 'Neal, right, standing with Ally on the ice at a University of Southern Maine game',
     objectPosition: 'center 22%',
@@ -47,7 +47,7 @@ export const TEAM: TeamMember[] = [
   {
     slug: 'carissa',
     name: 'Carissa',
-    role: 'Founding Team',
+    role: 'Founding Member',
     blurb: 'Goalie, operating room nurse and business owner who knows the fit problem first-hand.',
     lead: 'She never planned on becoming a goalie.',
     bio: [
