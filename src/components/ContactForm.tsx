@@ -37,6 +37,7 @@ export default function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: 'message', name, email, message, website }),
+        signal: AbortSignal.timeout(20000),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) throw new Error('failed');

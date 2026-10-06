@@ -5,8 +5,15 @@
 //   - contact messages (type: 'message') -> "Messages" tab, and the script emails the owner
 // GET /api/subscribe?check=1 reports which script version is deployed (writes nothing).
 // Env vars (set in Vercel): GOOGLE_SCRIPT_URL, SUBSCRIBE_SECRET
+//
+// Apps Script can be slow (usually ~3s, occasionally much longer). The visitor never waits on
+// it for more than FAST_BUDGET_MS: if it hasn't answered by then we confirm to the visitor and
+// let the save finish in the background with retries.
+
+import { waitUntil } from '@vercel/functions';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const FAST_BUDGET_MS = 6000;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export default async function handler(req, res) {
@@ -27,7 +34,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ ok: false, error: 'method_not_allowed' });
   }
 
-  const body = typeof req.body === 'string' ? safeParse(req.body) : req.body || {};
+  const body = typeof req.body === 'string' ? safeParse(req.body) || {} : req.body || {};
   const { email, source, website, type, name, message } = body;
 
   // Honeypot: real visitors never fill this hidden field.
@@ -64,20 +71,33 @@ export default async function handler(req, res) {
     return res.status(500).json({ ok: false, error: 'not_configured' });
   }
 
-  // Signups are safe to retry because the script ignores duplicates. Messages are not retried
-  // so nobody gets the same message twice.
-  let result = await callScript(url, payload);
-  if (!result && !isMessage) result = await callScript(url, payload);
+  const work = persist(url, payload, isMessage);
+  const first = await Promise.race([work, sleep(FAST_BUDGET_MS).then(() => 'slow')]);
 
-  if (!result || result.ok !== true) {
-    console.error('[subscribe] sheet did not confirm the row', JSON.stringify(result));
+  if (first === 'slow') {
+    // Still saving. Confirm to the visitor now; the save finishes in the background.
+    waitUntil(work);
+    return res.status(200).json({ ok: true, queued: true });
+  }
+  if (!first || first.ok !== true) {
+    console.error('[subscribe] sheet did not confirm the row', JSON.stringify(first));
     return res.status(502).json({ ok: false, error: 'storage_failed' });
   }
-  return res.status(200).json({ ok: true, duplicate: Boolean(result.duplicate) });
+  return res.status(200).json({ ok: true, duplicate: Boolean(first.duplicate) });
 }
 
-// Apps Script answers a POST with a redirect to a one-time result URL. Follow it by hand so a
-// flaky second hop can be retried without re-sending the data.
+// Saves the row. Signups are safe to retry because the script ignores duplicates; messages are
+// not re-sent, so nobody gets the same message twice.
+async function persist(url, payload, isMessage) {
+  let result = await callScript(url, payload);
+  if (!result && !isMessage) result = await callScript(url, payload);
+  if (!result && !isMessage) result = await callScript(url, payload);
+  return result;
+}
+
+// Apps Script answers a POST with a redirect to a one-time result URL. Follow it by hand, with
+// timeouts, so a stalled second hop can be retried without re-sending the data. If the redirect
+// arrived, the script has already run, so a result we can't read in time is treated as saved.
 async function callScript(url, payload) {
   try {
     const first = await fetch(url, {
@@ -85,6 +105,7 @@ async function callScript(url, payload) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
       redirect: 'manual',
+      signal: AbortSignal.timeout(25000),
     });
 
     if (first.status >= 300 && first.status < 400) {
@@ -92,15 +113,16 @@ async function callScript(url, payload) {
       if (!location) return null;
       for (let attempt = 0; attempt < 3; attempt += 1) {
         try {
-          const second = await fetch(location, { redirect: 'follow' });
+          const second = await fetch(location, { redirect: 'follow', signal: AbortSignal.timeout(4000) });
           const parsed = safeParse(await second.text());
           if (parsed && typeof parsed === 'object' && 'ok' in parsed) return parsed;
         } catch (err) {
           console.error('[subscribe] reading result failed', attempt, String(err));
         }
-        await sleep(400 * (attempt + 1));
+        await sleep(300 * (attempt + 1));
       }
-      return null;
+      console.error('[subscribe] script ran but its reply could not be read; treating as saved');
+      return { ok: true, unverified: true };
     }
 
     const parsed = safeParse(await first.text());

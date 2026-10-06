@@ -32,6 +32,7 @@ export default function SignupForm({ source, align = 'left', buttonLabel = 'Noti
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: value, source, website }),
+        signal: AbortSignal.timeout(20000),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
