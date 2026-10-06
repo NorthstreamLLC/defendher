@@ -11,21 +11,21 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>DefendHer — Neck Protection Built for Women's Hockey</title>
+        <title>DefendHer Sports | Protective Gear Built for Women's Hockey</title>
         <meta
           name="description"
-          content="DefendHer is building neck protection engineered specifically for women's hockey. Join the waitlist to be first to know when we launch."
+          content="DefendHer Sports is building protective gear designed for female athletes, starting with a sports bra with an integrated neck guard. Patent pending. Launching soon."
         />
         <link rel="canonical" href={`${site}/`} />
-        <meta property="og:title" content="DefendHer — Coming Soon" />
-        <meta property="og:description" content="Neck protection built for women's hockey. Launching soon." />
+        <meta property="og:title" content="DefendHer Sports | Protective Gear Built for Women's Hockey" />
+        <meta property="og:description" content="Protective gear designed for female athletes, starting with a sports bra with an integrated neck guard. Patent pending. Launching soon." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${site}/`} />
-        <meta property="og:image" content={`${site}/ice-rink.webp`} />
+        <meta property="og:image" content={`${site}/brand-banner.jpg`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="DefendHer — Coming Soon" />
-        <meta name="twitter:description" content="Neck protection built for women's hockey. Launching soon." />
-        <meta name="twitter:image" content={`${site}/ice-rink.webp`} />
+        <meta name="twitter:title" content="DefendHer Sports | Protective Gear Built for Women's Hockey" />
+        <meta name="twitter:description" content="Protective gear designed for female athletes, starting with a sports bra with an integrated neck guard. Patent pending." />
+        <meta name="twitter:image" content={`${site}/brand-banner.jpg`} />
       </Helmet>
 
       {/* ── HERO ── */}
