@@ -13,7 +13,7 @@
 import { waitUntil } from '@vercel/functions';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const FAST_BUDGET_MS = 6000;
+const FAST_BUDGET_MS = 3000;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export default async function handler(req, res) {
