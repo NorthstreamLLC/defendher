@@ -99,15 +99,18 @@ export default function ArticlePage() {
           </div>
         </div>
 
+        <style>{`
+          .dh-article-layout { display: grid; grid-template-columns: 200px 1fr; }
+          @media (max-width: 860px) { .dh-article-layout { grid-template-columns: 1fr; } .dh-article-layout > aside { position: static !important; } }
+        `}</style>
         {/* ── ARTICLE BODY ── */}
         {/* Two-column: sidebar index left, content right */}
         <div
+          className="dh-article-layout"
           style={{
-            display: 'grid',
-            gridTemplateColumns: '200px 1fr',
             maxWidth: '1200px',
             margin: '0 auto',
-            padding: 'clamp(48px, 6vw, 80px) 48px clamp(80px, 10vw, 120px)',
+            padding: 'clamp(40px, 6vw, 80px) clamp(20px, 4vw, 48px) clamp(80px, 10vw, 120px)',
             gap: 'clamp(40px, 6vw, 80px)',
             alignItems: 'start',
           }}

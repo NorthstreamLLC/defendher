@@ -89,19 +89,16 @@ export function FollowStrip() {
 
 export function HeroSocials() {
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px 20px', marginBottom: 'clamp(32px, 6vh, 56px)' }}>
-      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#d4d4d4' }}>
-        Follow the journey
-      </span>
+    <div className="dh-hero-socials">
+      <style>{`
+        .dh-hero-socials { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 8px; margin-bottom: clamp(32px, 6vh, 56px); }
+        .dh-hero-socials .dh-hero-socials-label { font-family: var(--font-sans); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #d4d4d4; margin-right: 12px; }
+        .dh-hero-socials a { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; color: #ffffff; }
+        @media (max-width: 520px) { .dh-hero-socials .dh-hero-socials-label { flex-basis: 100%; margin-right: 0; } .dh-hero-socials a { margin-left: -10px; } .dh-hero-socials a:first-of-type { margin-left: -10px; } }
+      `}</style>
+      <span className="dh-hero-socials-label">Follow the journey</span>
       {socials.map(({ href, label, Icon }) => (
-        <a
-          key={href}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={label}
-          style={{ color: '#ffffff', display: 'flex' }}
-        >
+        <a key={href} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
           <Icon />
         </a>
       ))}

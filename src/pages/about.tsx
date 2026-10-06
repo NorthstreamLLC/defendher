@@ -88,7 +88,7 @@ export default function AboutPage() {
               </Link>
             ))}
           </div>
-          <Link to="/team" style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a', textDecoration: 'none' }}>
+          <Link to="/team" style={{ minHeight: '44px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a', textDecoration: 'none' }}>
             Meet the team &rarr;
           </Link>
         </div>
@@ -112,7 +112,7 @@ export default function AboutPage() {
             ))}
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px 28px' }}>
-            <Link to="/testimonials" style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a', textDecoration: 'none' }}>
+            <Link to="/testimonials" style={{ minHeight: '44px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a', textDecoration: 'none' }}>
               Read what players say &rarr;
             </Link>
             <a

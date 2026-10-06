@@ -41,6 +41,10 @@ export default function WomensWednesdayPage() {
         </div>
 
         {/* Post list */}
+        <style>{`
+          .dh-ww-row { display: grid; grid-template-columns: 1fr clamp(200px, 30vw, 320px); gap: clamp(24px, 4vw, 64px); }
+          @media (max-width: 720px) { .dh-ww-row { grid-template-columns: 1fr; } .dh-ww-row .dh-ww-img { order: -1; } }
+        `}</style>
         <div style={{ padding: '0 clamp(20px, 4vw, 48px) clamp(80px, 10vw, 120px)' }}>
           {WOMENS_WEDNESDAY.map((post) => (
             <Link
@@ -49,10 +53,8 @@ export default function WomensWednesdayPage() {
               style={{ textDecoration: 'none', display: 'block' }}
             >
               <article
+                className="dh-ww-row"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr clamp(200px, 30vw, 320px)',
-                  gap: 'clamp(24px, 4vw, 64px)',
                   alignItems: 'center',
                   padding: 'clamp(32px, 5vw, 56px) 0',
                   borderBottom: '1px solid #3d3d3d',
@@ -93,7 +95,7 @@ export default function WomensWednesdayPage() {
                   </span>
                 </div>
 
-                <div style={{ aspectRatio: '4/3', overflow: 'hidden', borderRadius: '4px', background: '#2e2e2e' }}>
+                <div className="dh-ww-img" style={{ aspectRatio: '4/3', overflow: 'hidden', borderRadius: '4px', background: '#2e2e2e' }}>
                   <img
                     src={post.image}
                     alt={post.title}

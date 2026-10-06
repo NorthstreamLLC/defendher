@@ -14,9 +14,11 @@ const colHeading: React.CSSProperties = {
 
 const footLink: React.CSSProperties = {
   fontFamily: 'var(--font-sans)',
-  fontSize: '14px',
+  fontSize: '15px',
   color: '#d4d4d4',
   textDecoration: 'none',
+  display: 'inline-block',
+  padding: '10px 0',
 };
 
 export default function Footer() {
@@ -58,7 +60,7 @@ export default function Footer() {
           {/* Explore */}
           <div>
             <div style={colHeading}>Explore</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0' }}>
               {[
                 { href: '/product', label: 'Product' },
                 { href: '/about', label: 'About' },
@@ -79,7 +81,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <div style={colHeading}>Say hello</div>
-            <a href="mailto:Defendhersports@gmail.com" className="dh-foot-link" style={{ ...footLink, display: 'block', marginBottom: '20px', wordBreak: 'break-word' }}>
+            <a href="mailto:Defendhersports@gmail.com" className="dh-foot-link" style={{ ...footLink, marginBottom: '12px', wordBreak: 'break-word' }}>
               Defendhersports@gmail.com
             </a>
             <span
@@ -121,7 +123,7 @@ export default function Footer() {
               { href: '/privacy', label: 'Privacy' },
               { href: '/terms', label: 'Terms' },
             ].map((item) => (
-              <Link key={item.href} to={item.href} className="dh-foot-link" style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#8a8a8a', textDecoration: 'none' }}>
+              <Link key={item.href} to={item.href} className="dh-foot-link" style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: '#8a8a8a', textDecoration: 'none', display: 'inline-block', padding: '12px 0' }}>
                 {item.label}
               </Link>
             ))}

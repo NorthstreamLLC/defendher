@@ -36,7 +36,7 @@ export default function ContactPage() {
                   {label}
                 </span>
                 {href ? (
-                  <a href={href} style={{ fontFamily: 'var(--font-sans)', fontSize: '16px', color: '#d4d4d4', textDecoration: 'none', lineHeight: 1.6 }}
+                  <a href={href} style={{ fontFamily: 'var(--font-sans)', fontSize: '16px', color: '#d4d4d4', textDecoration: 'none', lineHeight: 1.6, display: 'inline-block', padding: '10px 0' }}
                     onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
                     onMouseLeave={e => (e.currentTarget.style.color = '#d4d4d4')}
                   >

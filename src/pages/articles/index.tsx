@@ -72,6 +72,10 @@ export default function ArticlesIndexPage() {
         </div>
 
         {/* Article list */}
+        <style>{`
+          .dh-journal-row { display: grid; grid-template-columns: 1fr 320px; gap: clamp(24px, 5vw, 64px); }
+          @media (max-width: 720px) { .dh-journal-row { grid-template-columns: 1fr; } .dh-journal-row .dh-journal-img { order: -1; } }
+        `}</style>
         <div style={{ padding: '0 clamp(20px, 4vw, 48px) clamp(80px, 10vw, 120px)' }}>
           {ARTICLES.map((article) => (
             <Link
@@ -80,10 +84,8 @@ export default function ArticlesIndexPage() {
               style={{ textDecoration: 'none', display: 'block' }}
             >
               <article
+                className="dh-journal-row"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 320px',
-                  gap: 'clamp(32px, 5vw, 64px)',
                   alignItems: 'start',
                   padding: 'clamp(40px, 5vw, 64px) 0',
                   borderBottom: '1px solid var(--line-subtle, #3d3d3d)',
@@ -114,7 +116,7 @@ export default function ArticlesIndexPage() {
                 </div>
 
                 {/* Hero image */}
-                <div style={{ overflow: 'hidden', borderRadius: '2px', aspectRatio: '4/3', background: 'var(--concrete-800, #2e2e2e)' }}>
+                <div className="dh-journal-img" style={{ overflow: 'hidden', borderRadius: '2px', aspectRatio: '4/3', background: 'var(--concrete-800, #2e2e2e)' }}>
                   <img
                     src={article.heroImage}
                     alt={article.heroAlt}
