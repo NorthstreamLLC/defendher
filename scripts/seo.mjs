@@ -18,6 +18,8 @@ const PAGES = {
   '/womens-wednesday': 'src/pages/womens-wednesday/index.tsx',
   '/contact': 'src/pages/contact.tsx',
   '/videos': 'src/pages/videos.tsx',
+  '/privacy': 'src/pages/privacy.tsx',
+  '/terms': 'src/pages/terms.tsx',
 };
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');

@@ -1,28 +1,13 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { HeroSocials } from '../components/Socials';
 import FeatureCards from '../components/FeatureCards';
+import SignupForm from '../components/SignupForm';
 
 const site = 'https://defendhersportsgear.com';
 
 export default function HomePage() {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
-
-  function handleSignup(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email || !email.includes('@')) {
-      setError('Please enter a valid email.');
-      return;
-    }
-    // No backend connected yet — show honest message
-    setSubmitted(true);
-    setError('');
-  }
-
   return (
     <>
       <Helmet>
@@ -155,80 +140,7 @@ export default function HomePage() {
           </p>
 
           {/* Signup form */}
-          {submitted ? (
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                border: '2px solid #e8ff3a',
-                borderRadius: '9999px',
-                padding: '14px 28px',
-                fontFamily: 'var(--font-sans)',
-                fontWeight: 700,
-                fontSize: '13px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                color: '#e8ff3a',
-              }}
-            >
-              You're on the list — we'll be in touch.
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSignup}
-              style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}
-              aria-label="Launch notification signup"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                aria-label="Email address"
-                style={{
-                  background: 'rgba(255,255,255,0.08)',
-                  border: '2px solid #3d3d3d',
-                  borderRadius: '9999px',
-                  padding: '14px 24px',
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '14px',
-                  color: '#ffffff',
-                  outline: 'none',
-                  minWidth: '240px',
-                  flex: '1 1 240px',
-                  maxWidth: '340px',
-                }}
-              />
-              <button
-                type="submit"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  background: '#e8ff3a',
-                  border: '2px solid #e8ff3a',
-                  color: '#1a1a1a',
-                  borderRadius: '9999px',
-                  padding: '14px 28px',
-                  fontFamily: 'var(--font-sans)',
-                  fontWeight: 700,
-                  fontSize: '13px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                NOTIFY ME <ArrowRight size={15} />
-              </button>
-              {error && (
-                <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: '#ff6b6b', width: '100%' }}>
-                  {error}
-                </span>
-              )}
-            </form>
-          )}
+          <SignupForm source="home-hero" />
 
           <Link
             to="/product"
@@ -506,75 +418,7 @@ export default function HomePage() {
           We're in the final stages of development. Get notified the moment DefendHer is ready to ship.
         </p>
 
-        {submitted ? (
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              border: '2px solid #e8ff3a',
-              borderRadius: '9999px',
-              padding: '14px 28px',
-              fontFamily: 'var(--font-sans)',
-              fontWeight: 700,
-              fontSize: '13px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              color: '#e8ff3a',
-            }}
-          >
-            You're on the list — we'll be in touch.
-          </div>
-        ) : (
-          <form
-            onSubmit={handleSignup}
-            style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', justifyContent: 'center' }}
-            aria-label="Launch notification signup"
-          >
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="your@email.com"
-              aria-label="Email address"
-              style={{
-                background: 'rgba(255,255,255,0.06)',
-                border: '2px solid #3d3d3d',
-                borderRadius: '9999px',
-                padding: '14px 24px',
-                fontFamily: 'var(--font-sans)',
-                fontSize: '14px',
-                color: '#ffffff',
-                outline: 'none',
-                minWidth: '240px',
-                flex: '1 1 240px',
-                maxWidth: '340px',
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                background: '#e8ff3a',
-                border: '2px solid #e8ff3a',
-                color: '#1a1a1a',
-                borderRadius: '9999px',
-                padding: '14px 28px',
-                fontFamily: 'var(--font-sans)',
-                fontWeight: 700,
-                fontSize: '13px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              NOTIFY ME <ArrowRight size={15} />
-            </button>
-          </form>
-        )}
+        <SignupForm source="home-bottom" align="center" />
 
         <p
           style={{

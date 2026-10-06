@@ -5,6 +5,8 @@ import NotFoundPage from './pages/_404';
 import ProductPage from './pages/product';
 import TestimonialsPage from './pages/testimonials';
 import TeamPage from './pages/team';
+import PrivacyPage from './pages/privacy';
+import TermsPage from './pages/terms';
 
 const ArticlesIndexPage = lazy(() => import('./pages/articles/index'));
 const ArticlePage = lazy(() => import('./pages/articles/[slug]'));
@@ -23,6 +25,14 @@ export const routes: RouteObject[] = [
   {
     path: '/shop',
     element: <Navigate to="/product" replace />,
+  },
+  {
+    path: '/privacy',
+    element: <PrivacyPage />,
+  },
+  {
+    path: '/terms',
+    element: <TermsPage />,
   },
   {
     path: '/team',

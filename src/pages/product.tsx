@@ -2,6 +2,7 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import FeatureCards from '../components/FeatureCards';
+import SignupForm from '../components/SignupForm';
 import FAQ from '../components/FAQ';
 import { FAQS } from '@/lib/faq';
 
@@ -87,20 +88,6 @@ function PatentPhoto({ src, alt, ratio = '3/4', eager = false, light = false, fi
 
 export default function ProductPage() {
   const [active, setActive] = useState(0);
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
-
-  function handleSignup(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email || !email.includes('@')) {
-      setError('Please enter a valid email.');
-      return;
-    }
-    setSubmitted(true);
-    setError('');
-  }
-
   const points = [
     { title: 'Sports bra base layer', text: 'Support and comfort in a piece you already wear every game.' },
     { title: 'Integrated neck guard', text: 'Neck protection built into the garment, not strapped on top of it.' },
@@ -218,29 +205,7 @@ export default function ProductPage() {
             Not for sale yet. Leave your email and we&rsquo;ll tell you when it launches.
           </p>
 
-          {submitted ? (
-            <div style={{ display: 'inline-flex', border: '2px solid #e8ff3a', borderRadius: '9999px', padding: '14px 28px', fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#e8ff3a' }}>
-              Thanks. We&rsquo;ll be in touch.
-            </div>
-          ) : (
-            <form onSubmit={handleSignup} aria-label="Launch notification signup" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', justifyContent: 'center' }}>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                aria-label="Email address"
-                style={{ background: 'rgba(255,255,255,0.06)', border: '2px solid #3d3d3d', borderRadius: '9999px', padding: '14px 24px', fontFamily: 'var(--font-sans)', fontSize: '14px', color: '#ffffff', outline: 'none', flex: '1 1 240px', maxWidth: '340px' }}
-              />
-              <button
-                type="submit"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: '#e8ff3a', border: '2px solid #e8ff3a', color: '#1a1a1a', borderRadius: '9999px', padding: '14px 28px', fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', cursor: 'pointer', whiteSpace: 'nowrap' }}
-              >
-                Notify me <ArrowRight size={15} />
-              </button>
-            </form>
-          )}
-          {error && <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: '#ff8a8a', marginTop: '12px' }}>{error}</p>}
+          <SignupForm source="product" align="center" />
 
           <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: '#8a8a8a', marginTop: '24px' }}>
             Follow the build on{' '}
