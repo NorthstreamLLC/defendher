@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/testimonials';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 const THEMES = [
   { title: 'Stays in place', text: 'One piece, so it doesn’t shift or itch during the game.' },

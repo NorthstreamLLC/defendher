@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { WOMENS_WEDNESDAY } from '@/lib/womens-wednesday';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 function renderBody(lines: string[]) {
   return lines.map((line, i) => {

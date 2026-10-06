@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { buildSync } from 'esbuild';
 
-const SITE = 'https://defendhersportsgear.com';
+const SITE = 'https://www.defendhersportsgear.com';
 const DIST = 'dist/client';
 
 const PAGES = {

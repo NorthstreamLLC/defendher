@@ -3,7 +3,7 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { ARTICLES } from '@/lib/articles';
 import PageBanner from '@/components/PageBanner';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 export default function ArticlesIndexPage() {
   return (

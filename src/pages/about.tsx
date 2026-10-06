@@ -4,7 +4,7 @@ import { TESTIMONIALS } from '@/lib/testimonials';
 import { TEAM } from '@/lib/team';
 import PageBanner from '@/components/PageBanner';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 export default function AboutPage() {
   return (

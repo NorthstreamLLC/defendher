@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { fetchOrders, getSessionId, type Order } from '@/lib/auth-client';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 const STATUS_STEPS = ['confirmed', 'processing', 'shipped', 'delivered'];
 

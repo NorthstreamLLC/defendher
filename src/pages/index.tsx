@@ -5,7 +5,7 @@ import { HeroSocials } from '../components/Socials';
 import FeatureCards from '../components/FeatureCards';
 import SignupForm from '../components/SignupForm';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 export default function HomePage() {
   return (

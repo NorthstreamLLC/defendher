@@ -4,7 +4,7 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { useCartStore } from '@/lib/cart-store';
 import { authHeaders, getStoredCustomer } from '@/lib/auth-client';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 export default function CheckoutPage() {
   const { items, subtotal, clearCart } = useCartStore();

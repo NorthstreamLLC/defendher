@@ -10,7 +10,7 @@ import {
   type Customer,
 } from '@/lib/auth-client';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 const inputStyle: React.CSSProperties = {
   background: '#2e2e2e',

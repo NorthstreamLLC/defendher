@@ -3,7 +3,7 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { Trash2, ArrowRight } from 'lucide-react';
 import { useCartStore } from '@/lib/cart-store';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, subtotal } = useCartStore();

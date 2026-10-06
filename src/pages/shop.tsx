@@ -2,7 +2,7 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 export default function ShopPage() {
   const [email, setEmail] = useState('');

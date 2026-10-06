@@ -6,7 +6,7 @@ import SignupForm from '../components/SignupForm';
 import FAQ from '../components/FAQ';
 import { FAQS } from '@/lib/faq';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 // To add a photo: save it in /public, then add a line here.
 const PHOTOS: { src: string; alt: string; light?: boolean; fit?: 'cover' | 'contain'; note?: string }[] = [

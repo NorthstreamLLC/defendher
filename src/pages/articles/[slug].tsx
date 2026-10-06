@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { getArticle } from '@/lib/articles';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();

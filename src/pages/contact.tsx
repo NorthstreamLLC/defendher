@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import PageBanner from '@/components/PageBanner';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 export default function ContactPage() {
   const [email, setEmail] = useState('');

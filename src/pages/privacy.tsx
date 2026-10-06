@@ -1,7 +1,7 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
 import PageBanner from '@/components/PageBanner';
 
-const site = 'https://defendhersportsgear.com';
+const site = 'https://www.defendhersportsgear.com';
 
 const h2: React.CSSProperties = { fontFamily: 'var(--font-sans)', fontSize: '20px', fontWeight: 800, color: '#ffffff', margin: '40px 0 12px' };
 const p: React.CSSProperties = { fontFamily: 'var(--font-sans)', fontSize: '16px', color: '#d4d4d4', lineHeight: 1.75, margin: '0 0 16px' };

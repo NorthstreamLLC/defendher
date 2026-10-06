@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://defendhersportsgear.com/sitemap.xml
+Sitemap: https://www.defendhersportsgear.com/sitemap.xml
