@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { HeroSocials } from '../components/Socials';
 import FeatureCards from '../components/FeatureCards';
 
-const site = 'https://defendhersport.net';
+const site = 'https://defendhersportsgear.com';
 
 export default function HomePage() {
   const [email, setEmail] = useState('');

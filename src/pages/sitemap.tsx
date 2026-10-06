@@ -3,7 +3,7 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { ARTICLES } from '@/lib/articles';
 import { WOMENS_WEDNESDAY } from '@/lib/womens-wednesday';
 
-const site = 'https://defendhersport.net';
+const site = 'https://defendhersportsgear.com';
 
 interface SitemapSection {
   label: string;

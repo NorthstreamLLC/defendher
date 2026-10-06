@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from '@dr.pogodin/react-helmet';
 
-const site = 'https://defendhersport.net';
+const site = 'https://defendhersportsgear.com';
 
 // Mock order reference
 const ORDER_REF = `DH-${Date.now().toString(36).toUpperCase().slice(-8)}`;

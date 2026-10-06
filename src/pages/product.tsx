@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import FeatureCards from '../components/FeatureCards';
 
-const site = 'https://defendhersport.net';
+const site = 'https://defendhersportsgear.com';
 
 // To add a photo: save it in /public, then add a line here.
 const PHOTOS: { src: string; alt: string; light?: boolean; fit?: 'cover' | 'contain'; note?: string }[] = [

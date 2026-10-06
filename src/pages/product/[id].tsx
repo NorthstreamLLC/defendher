@@ -5,7 +5,7 @@ import { Shield, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getProduct } from '@/lib/products';
 import { useCartStore } from '@/lib/cart-store';
 
-const site = 'https://defendhersport.net';
+const site = 'https://defendhersportsgear.com';
 
 export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();

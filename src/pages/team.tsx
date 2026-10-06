@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { TEAM, HOW_IT_STARTED } from '@/lib/team';
 import PageBanner from '@/components/PageBanner';
 
-const site = 'https://defendhersport.net';
+const site = 'https://defendhersportsgear.com';
 
 const eyebrow: React.CSSProperties = {
   fontFamily: 'var(--font-sans)',

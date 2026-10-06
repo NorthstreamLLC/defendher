@@ -1,7 +1,7 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { VIDEOS } from '@/lib/videos';
 
-const site = 'https://defendhersport.net';
+const site = 'https://defendhersportsgear.com';
 
 export default function VideosPage() {
   return (
