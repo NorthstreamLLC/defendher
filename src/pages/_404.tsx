@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from '@dr.pogodin/react-helmet';
 
 export default function NotFoundPage() {
   return (
+    <>
+    <Helmet>
+      <title>Page not found | DefendHer Sports</title>
+      <meta name="robots" content="noindex" />
+    </Helmet>
     <div
       style={{
         paddingTop: 'var(--header-h)',
@@ -58,5 +64,6 @@ export default function NotFoundPage() {
         </Link>
       </div>
     </div>
+    </>
   );
 }

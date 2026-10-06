@@ -2,6 +2,8 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import FeatureCards from '../components/FeatureCards';
+import FAQ from '../components/FAQ';
+import { FAQS } from '@/lib/faq';
 
 const site = 'https://defendhersportsgear.com';
 
@@ -117,6 +119,11 @@ export default function ProductPage() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${site}/product`} />
         <meta property="og:image" content={`${site}${PHOTOS[0].src}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: FAQS.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        })}</script>
       </Helmet>
 
       <div style={{ paddingTop: 'var(--header-h)', background: '#1a1a1a' }}>
@@ -194,6 +201,13 @@ export default function ProductPage() {
           <p style={body}>
             So founder Ally imagined a sports bra with the neck guard built in, then built the first prototype with her university equipment manager, Neal. Together they refined it with an adjustable magnetic closure.
           </p>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq" style={{ borderTop: '1px solid #3d3d3d', padding: 'clamp(64px, 9vw, 120px) clamp(24px, 5vw, 80px)', maxWidth: '1280px', margin: '0 auto' }}>
+          <span style={label}>FAQ</span>
+          <h2 style={h2}>QUESTIONS,<br />ANSWERED</h2>
+          <FAQ />
         </section>
 
         {/* STATUS + SIGNUP */}

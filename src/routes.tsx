@@ -6,7 +6,6 @@ import ProductPage from './pages/product';
 import TestimonialsPage from './pages/testimonials';
 import TeamPage from './pages/team';
 
-const ShopPage = lazy(() => import('./pages/shop'));
 const ArticlesIndexPage = lazy(() => import('./pages/articles/index'));
 const ArticlePage = lazy(() => import('./pages/articles/[slug]'));
 const SitemapPage = lazy(() => import('./pages/sitemap'));
@@ -23,7 +22,7 @@ export const routes: RouteObject[] = [
   },
   {
     path: '/shop',
-    element: <ShopPage />,
+    element: <Navigate to="/product" replace />,
   },
   {
     path: '/team',
