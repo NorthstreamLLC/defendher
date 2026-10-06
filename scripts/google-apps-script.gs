@@ -1,10 +1,11 @@
-// Paste this into the Google Sheet: Extensions > Apps Script, replacing any existing code.
-// First time: Deploy > New deployment > Web app: Execute as "Me", Who has access "Anyone".
-// Updating later: Deploy > Manage deployments > pencil icon > Version: New version > Deploy
-// (the Web app URL stays the same).
-// Copy the Web app URL into Vercel as GOOGLE_SCRIPT_URL, and put the same SECRET below
-// into Vercel as SUBSCRIBE_SECRET.
+// REPLACE THE WHOLE SCRIPT: in the Apps Script editor press Ctrl+A, Delete, then paste this
+// entire file (do not paste it above or below the old code; two copies of doPost break it).
+// Then Save, and Deploy > Manage deployments > pencil icon > Version: New version > Deploy.
+// The Web app URL stays the same. Google will ask you to approve email permission once.
+//
+// Vercel needs: GOOGLE_SCRIPT_URL (the Web app URL) and SUBSCRIBE_SECRET (same value as SECRET).
 
+const VERSION = 'v3-messages';
 const SECRET = 'PUT-YOUR-OWN-LONG-RANDOM-STRING-HERE';
 const OWNER_EMAIL = 'Defendhersports@gmail.com'; // contact messages are emailed here
 const SUBSCRIBERS_SHEET = 'Subscribers';
@@ -16,6 +17,8 @@ function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
     if (data.secret !== SECRET) return respond({ ok: false, error: 'forbidden' });
+
+    if (data.type === 'ping') return respond({ ok: true, version: VERSION });
 
     const email = String(data.email || '').trim().toLowerCase();
     if (!email) return respond({ ok: false, error: 'missing_email' });
