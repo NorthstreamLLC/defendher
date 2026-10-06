@@ -1,6 +1,8 @@
 // Vercel serverless function: POST /api/subscribe
-// Validates the email, drops bot submissions, and appends a row to the Google Sheet through
-// an Apps Script web app (see scripts/google-apps-script.gs).
+// Handles two kinds of submissions and writes them to a Google Sheet through an Apps Script
+// web app (see scripts/google-apps-script.gs):
+//   - email signups (default)           -> "Subscribers" tab
+//   - contact messages (type: 'message') -> "Messages" tab, and the script emails the owner
 // Env vars (set in Vercel): GOOGLE_SCRIPT_URL, SUBSCRIBE_SECRET
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -12,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   const body = typeof req.body === 'string' ? safeParse(req.body) : req.body || {};
-  const { email, source, website } = body;
+  const { email, source, website, type, name, message } = body;
 
   // Honeypot: real visitors never fill this hidden field.
   if (website) return res.status(200).json({ ok: true });
@@ -20,6 +22,26 @@ export default async function handler(req, res) {
   const clean = String(email || '').trim().toLowerCase();
   if (clean.length > 254 || !EMAIL_RE.test(clean)) {
     return res.status(400).json({ ok: false, error: 'invalid_email' });
+  }
+
+  const payload = {
+    secret: process.env.SUBSCRIBE_SECRET || '',
+    email: clean,
+    page: String(req.headers.referer || '').slice(0, 200),
+  };
+
+  if (type === 'message') {
+    const cleanName = String(name || '').trim().slice(0, 100);
+    const cleanMessage = String(message || '').trim().slice(0, 3000);
+    if (!cleanName || !cleanMessage) {
+      return res.status(400).json({ ok: false, error: 'missing_fields' });
+    }
+    payload.type = 'message';
+    payload.name = cleanName;
+    payload.message = cleanMessage;
+  } else {
+    payload.type = 'subscribe';
+    payload.source = String(source || '').slice(0, 60);
   }
 
   const url = process.env.GOOGLE_SCRIPT_URL;
@@ -32,12 +54,7 @@ export default async function handler(req, res) {
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        secret: process.env.SUBSCRIBE_SECRET || '',
-        email: clean,
-        source: String(source || '').slice(0, 60),
-        page: String(req.headers.referer || '').slice(0, 200),
-      }),
+      body: JSON.stringify(payload),
       redirect: 'follow',
     });
     const result = await response.json().catch(() => ({}));

@@ -1,13 +1,11 @@
-import { useState } from 'react';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import PageBanner from '@/components/PageBanner';
+import ContactForm from '@/components/ContactForm';
+import SignupForm from '@/components/SignupForm';
 
 const site = 'https://www.defendhersportsgear.com';
 
 export default function ContactPage() {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
   return (
     <>
       <Helmet>
@@ -58,32 +56,7 @@ export default function ContactPage() {
             <span style={{ fontFamily: 'var(--font-sans)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--volt-primary, #e8ff3a)', display: 'block', marginBottom: '24px' }}>
               Send a Message
             </span>
-            <form
-              onSubmit={e => { e.preventDefault(); alert('Message sent! (Form not wired up yet)'); }}
-              style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
-            >
-              {['Name', 'Email'].map(field => (
-                <input
-                  key={field}
-                  type={field === 'Email' ? 'email' : 'text'}
-                  placeholder={field}
-                  required
-                  style={{ background: '#2a2a2a', border: '1px solid #3d3d3d', borderRadius: '6px', padding: '14px 16px', fontFamily: 'var(--font-sans)', fontSize: '15px', color: '#ffffff', outline: 'none', width: '100%', boxSizing: 'border-box' }}
-                />
-              ))}
-              <textarea
-                placeholder="Your message"
-                required
-                rows={5}
-                style={{ background: '#2a2a2a', border: '1px solid #3d3d3d', borderRadius: '6px', padding: '14px 16px', fontFamily: 'var(--font-sans)', fontSize: '15px', color: '#ffffff', outline: 'none', resize: 'vertical', width: '100%', boxSizing: 'border-box' }}
-              />
-              <button
-                type="submit"
-                style={{ background: 'var(--volt-primary, #e8ff3a)', color: '#1a1a1a', border: 'none', borderRadius: '9999px', padding: '14px 32px', fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', cursor: 'pointer', alignSelf: 'flex-start' }}
-              >
-                Send Message
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
 
@@ -98,31 +71,7 @@ export default function ContactPage() {
           <p style={{ fontFamily: 'var(--font-sans)', fontSize: '15px', color: '#8a8a8a', margin: '0 0 24px', maxWidth: '400px' }}>
             New products, launch updates, and stories from the ice. No spam, ever.
           </p>
-          {submitted ? (
-            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '15px', color: 'var(--volt-primary, #e8ff3a)', fontWeight: 700 }}>
-              You're in. Talk soon.
-            </p>
-          ) : (
-            <form
-              onSubmit={e => { e.preventDefault(); setSubmitted(true); }}
-              style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="Your email address"
-                required
-                style={{ background: '#2a2a2a', border: '1px solid #3d3d3d', borderRadius: '9999px', padding: '14px 24px', fontFamily: 'var(--font-sans)', fontSize: '15px', color: '#ffffff', outline: 'none', minWidth: '260px', flexGrow: 1, maxWidth: '400px' }}
-              />
-              <button
-                type="submit"
-                style={{ background: 'var(--volt-primary, #e8ff3a)', color: '#1a1a1a', border: 'none', borderRadius: '9999px', padding: '14px 28px', fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', cursor: 'pointer', whiteSpace: 'nowrap' }}
-              >
-                Subscribe
-              </button>
-            </form>
-          )}
+          <SignupForm source="contact" buttonLabel="Subscribe" />
         </div>
 
       </div>
