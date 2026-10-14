@@ -26,10 +26,10 @@ export default function TestimonialsPage() {
     <>
       <Helmet>
         <title>Player Testimonials — DefendHer Sports</title>
-        <meta name="description" content="Two NDHL players on a year in the DefendHer prototype: it stays in place, runs cooler, and the magnetic closure doesn't catch their hair." />
+        <meta name="description" content="Players who wore the DefendHer prototype say it stays in place, runs cooler, and the magnetic closure doesn't catch their hair. Read what they told us." />
         <link rel="canonical" href={`${site}/testimonials`} />
         <meta property="og:title" content="Player Testimonials — DefendHer Sports" />
-        <meta property="og:description" content="Players on a year in the DefendHer prototype." />
+        <meta property="og:description" content="Players who wore the DefendHer prototype on what they liked and what they'd change." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${site}/testimonials`} />
         <meta property="og:image" content={`${site}/testimonial-bella.jpg`} />
