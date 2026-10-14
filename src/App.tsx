@@ -8,6 +8,7 @@ import {
 
 import RootLayout from './layouts/RootLayout';
 import Spinner from './components/Spinner';
+import { Analytics } from '@vercel/analytics/react';
 import { routes } from './routes';
 
 const SpinnerFallback = () => (
@@ -34,5 +35,10 @@ const routeTree: RouteObject[] = [
 const router = createBrowserRouter(routeTree);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Analytics />
+    </>
+  );
 }

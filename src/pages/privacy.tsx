@@ -36,6 +36,11 @@ export default function PrivacyPage() {
             Signups are stored in a private Google Sheet that only our team can open. Our website is hosted by Vercel, which keeps standard server logs such as your IP address and browser type to run and secure the site.
           </p>
 
+          <h2 style={h2}>Website analytics</h2>
+          <p style={p}>
+            We use Vercel Web Analytics to count visits and see which pages are read. It records anonymous, aggregated information such as the page visited, the site you came from, your country or region, and your device and browser type. It doesn&rsquo;t use tracking cookies and doesn&rsquo;t follow you across other websites.
+          </p>
+
           <h2 style={h2}>Unsubscribing and deleting your data</h2>
           <p style={p}>
             Email us at <a href="mailto:Defendhersports@gmail.com" style={{ color: '#e8ff3a' }}>Defendhersports@gmail.com</a> and ask us to remove your address, and we will. Every marketing email we send will also tell you how to opt out.
