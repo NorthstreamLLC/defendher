@@ -38,7 +38,7 @@ export default function PrivacyPage() {
 
           <h2 style={h2}>Website analytics</h2>
           <p style={p}>
-            We use Vercel Web Analytics to count visits and see which pages are read. It records anonymous, aggregated information such as the page visited, the site you came from, your country or region, and your device and browser type. It doesn&rsquo;t use tracking cookies and doesn&rsquo;t follow you across other websites.
+            We use two tools to understand how the site is used. Vercel Web Analytics counts visits and page views anonymously, without tracking cookies. Google Analytics also records how visitors use the site, such as the pages viewed, how you arrived, your approximate location, and your device and browser type. Google Analytics uses cookies, and Google processes that data under its own privacy policy. You can block these cookies in your browser settings or use Google&rsquo;s opt-out browser add-on.
           </p>
 
           <h2 style={h2}>Unsubscribing and deleting your data</h2>
